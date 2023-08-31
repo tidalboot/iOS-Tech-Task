@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="accountCell" id="Sgq-IM-EPq" customClass="AccountCollectionViewCell" customModule="MoneyBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="223"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Fpx-ET-uz0">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="223"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDl-3V-Akj">
+                        <rect key="frame" x="29.999999999999993" y="21" width="88.333333333333314" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan value: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yH-aa-bXc">
+                        <rect key="frame" x="29.999999999999993" y="57.000000000000007" width="86.333333333333314" height="20.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7yH-aa-bXc" firstAttribute="top" secondItem="WDl-3V-Akj" secondAttribute="bottom" constant="15" id="17C-QI-b2L"/>
+                    <constraint firstItem="WDl-3V-Akj" firstAttribute="top" secondItem="Fpx-ET-uz0" secondAttribute="top" constant="21" id="t39-KM-lW8"/>
+                    <constraint firstItem="WDl-3V-Akj" firstAttribute="leading" secondItem="Fpx-ET-uz0" secondAttribute="leading" constant="30" id="upi-63-2zF"/>
+                    <constraint firstItem="7yH-aa-bXc" firstAttribute="leading" secondItem="WDl-3V-Akj" secondAttribute="leading" id="vGm-Vc-DeB"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" name="GreyColor"/>
+            <size key="customSize" width="362" height="223"/>
+            <connections>
+                <outlet property="planNameLabel" destination="WDl-3V-Akj" id="YJC-6s-MJg"/>
+                <outlet property="planValueLabel" destination="7yH-aa-bXc" id="8WB-UV-JEg"/>
+            </connections>
+            <point key="canvasLocation" x="464" y="-119"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="GreyColor">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

@@ -7,10 +7,6 @@
 
 import UIKit
 
-extension UIColor {
-    static let accentColor = UIColor(named: "AccentColor")
-}
-
 class LoginViewController: UIViewController {
     
     //MARK: - View outlets 🌁
@@ -48,6 +44,11 @@ class LoginViewController: UIViewController {
         loadingIndicator.alpha = 1
     }
     
+    //MARK: - Navidation Handlers ⛴️
+    private func goToAccountScreen() {
+        present(AccountsViewController(), animated: false)
+    }
+    
     //MARK: - Logic Handlers 🤖
     
     private func checkForBothFieldsBeingFilled() -> Bool {
@@ -64,17 +65,27 @@ class LoginViewController: UIViewController {
             return
         }
             
-        if emailAddressTextField.text == nil {
+        if emailAddressTextField.text?.isEmpty ?? false {
             showEmailError()
         }
         
-        if passwordTextField.text == nil {
+        if passwordTextField.text?.isEmpty ?? false {
             showPasswordError()
         }
     }
     
     private func continueLogin(withEmail email: String, andPassword password: String) {
         setLoadingLoginButtonState()
+        
+        UIView.animate(withDuration: 0.4, delay: 2) {
+            self.moneyboxLogoImageView.alpha = 0
+            self.emailAddressTextField.alpha = 0
+            self.passwordTextField.alpha = 0
+            self.loginButton.alpha = 0
+            self.loadingIndicator.alpha = 0
+        } completion: { _ in
+            self.goToAccountScreen()
+        }
     }
     
     //MARK: - Animations 🎭
@@ -124,14 +135,28 @@ class LoginViewController: UIViewController {
     
     private func showEmailError() {
         emailAddressTextField.textColor = .systemRed
+        showGenericLoginError()
     }
     
     private func showPasswordError() {
         passwordTextField.textColor = .systemRed
+        showGenericLoginError()
     }
     
     private func showGenericLoginError() {
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
         informationalLabel.text = "Invalid email address or password please try again"
+        informationalLabel.textColor = .systemRed
+    }
+    
+    private func hideGenericLoginError() {
+        guard informationalLabel.text != "" else { return }
+        UIView.animate(withDuration: 0.3) {
+            self.informationalLabel.alpha = 0
+        } completion: { _ in
+            self.informationalLabel.text = ""
+        }
+
         informationalLabel.textColor = .systemRed
     }
     
@@ -143,6 +168,9 @@ class LoginViewController: UIViewController {
     //MARK: - Text Field Delegate Handlers ✏️
     @IBAction func userStartedEditingField(_ sender: UITextField) {
         sender.textColor = .accentColor
+        setDefaultLoginButtonState()
+        hideGenericLoginError()
+        
         guard checkForBothFieldsBeingFilled() else { return }
         enableLoginButton()
     }
