@@ -11,6 +11,7 @@ struct AccountInformation {
     let name: String
     let value: Double
     let contributions: Int
+    let type: String
 }
 
 class AccountsViewModel {
@@ -42,8 +43,9 @@ class AccountsViewModel {
         let accounts: [AccountInformation] = rawAccounts.compactMap {
             guard let name = $0.name,
                   let value = $0.wrapper?.totalValue,
-                  let contributions = $0.wrapper?.totalContributions else { return nil }
-            return AccountInformation(name: name, value: value, contributions: contributions)
+                  let contributions = $0.wrapper?.totalContributions,
+                  let type = $0.type else { return nil }
+            return AccountInformation(name: name, value: value, contributions: contributions, type: type)
         }
         self.accounts = accounts
     }

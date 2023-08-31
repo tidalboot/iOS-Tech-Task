@@ -102,7 +102,18 @@ extension AccountsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        guard let accountDetailsViewController = UIStoryboard.init(name: "AccountDetails", bundle: Bundle.main).instantiateViewController(withIdentifier: "AccountDetails") as? AccountDetailsViewController else { return }
         
+        guard let viewModel = self.viewModel else { return }
+        let account = viewModel.accounts[indexPath.row]
+        let accountDetailsViewModel = AccountDetailsViewModel(
+            accountName: account.name,
+            accountType: account.type,
+            planValue: account.value,
+            contributions: account.contributions
+        )
+        accountDetailsViewController.accountDetailsViewModel = accountDetailsViewModel
+        navigationController?.pushViewController(accountDetailsViewController, animated: true)
     }
 }
 

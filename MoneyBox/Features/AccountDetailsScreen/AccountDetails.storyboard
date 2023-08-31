@@ -6,94 +6,83 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Account Details View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="AccountDetailsViewController" customModule="MoneyBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountDetails" id="Y6W-OH-hqX" customClass="AccountDetailsViewController" customModule="MoneyBox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accountName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZA-oJ-WeA">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accountName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZA-oJ-WeA">
                                 <rect key="frame" x="30" y="69" width="333" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" name="TextFieldBackground"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accountType" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBE-Bw-qw3">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="accountType" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBE-Bw-qw3">
                                 <rect key="frame" x="30" y="109" width="333" height="26.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" name="TextFieldBackground"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="planValue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHN-bg-4jB">
-                                <rect key="frame" x="30" y="175.33333333333334" width="333" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="contributions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shX-q9-e0e">
+                                <rect key="frame" x="30" y="316.33333333333331" width="333" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" name="TextFieldBackground"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="contributions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shX-q9-e0e">
-                                <rect key="frame" x="30" y="215.33333333333334" width="333" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" name="TextFieldBackground"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-Wb-dho">
-                                <rect key="frame" x="137.66666666666666" y="272" width="117.66666666666666" height="118"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nrA-Wb-dho" customClass="RoundView" customModule="MoneyBox" customModuleProvider="target">
+                                <rect key="frame" x="137.66666666666666" y="155.33333333333334" width="117.66666666666666" height="118.00000000000003"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADl-Wm-UAl">
-                                        <rect key="frame" x="51" y="48.333333333333314" width="16" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwA-2s-R4I">
+                                        <rect key="frame" x="0.0" y="117.99999999999997" width="117.66666666666667" height="0.0"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="2" id="ADV-ae-UHY"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADl-Wm-UAl">
+                                        <rect key="frame" x="44.666666666666686" y="47" width="28.666666666666671" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwA-2s-R4I">
-                                        <rect key="frame" x="0.0" y="58.333333333333314" width="117.66666666666667" height="1.3333333333333357"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grO-Lm-MeG">
-                                                <rect key="frame" x="51" y="-10" width="16" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="grO-Lm-MeG" firstAttribute="centerY" secondItem="rwA-2s-R4I" secondAttribute="centerY" id="8CQ-rD-XiI"/>
-                                            <constraint firstItem="grO-Lm-MeG" firstAttribute="centerX" secondItem="rwA-2s-R4I" secondAttribute="centerX" id="Iau-ay-Bmt"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" name="TextFieldBackground"/>
                                 <constraints>
                                     <constraint firstItem="rwA-2s-R4I" firstAttribute="width" secondItem="nrA-Wb-dho" secondAttribute="width" id="5cq-wg-lSR"/>
                                     <constraint firstItem="rwA-2s-R4I" firstAttribute="centerX" secondItem="nrA-Wb-dho" secondAttribute="centerX" id="RZh-T3-mNM"/>
                                     <constraint firstItem="ADl-Wm-UAl" firstAttribute="centerY" secondItem="nrA-Wb-dho" secondAttribute="centerY" id="U0d-vD-sME"/>
                                     <constraint firstAttribute="width" secondItem="nrA-Wb-dho" secondAttribute="height" multiplier="1:1" id="ao4-wo-9cn"/>
+                                    <constraint firstAttribute="bottom" secondItem="rwA-2s-R4I" secondAttribute="bottom" id="dw8-bz-Ail"/>
                                     <constraint firstItem="ADl-Wm-UAl" firstAttribute="centerX" secondItem="nrA-Wb-dho" secondAttribute="centerX" id="hx0-00-wHd"/>
-                                    <constraint firstItem="rwA-2s-R4I" firstAttribute="centerY" secondItem="nrA-Wb-dho" secondAttribute="centerY" id="rmj-YX-j8S"/>
-                                    <constraint firstItem="rwA-2s-R4I" firstAttribute="height" secondItem="nrA-Wb-dho" secondAttribute="height" multiplier="0.01" id="sOh-nq-CyE"/>
+                                    <constraint firstItem="rwA-2s-R4I" firstAttribute="height" secondItem="nrA-Wb-dho" secondAttribute="height" priority="1" id="sOh-nq-CyE"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="planValue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHN-bg-4jB">
+                                <rect key="frame" x="30" y="283.33333333333331" width="333" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" name="TextFieldBackground"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
                             <constraint firstItem="nHN-bg-4jB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="4ZP-zS-mpd"/>
                             <constraint firstItem="qBE-Bw-qw3" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="6dt-4G-uIc"/>
-                            <constraint firstItem="nrA-Wb-dho" firstAttribute="top" secondItem="shX-q9-e0e" secondAttribute="bottom" constant="26.666666666666657" id="80R-HN-OFv"/>
                             <constraint firstItem="shX-q9-e0e" firstAttribute="top" secondItem="nHN-bg-4jB" secondAttribute="bottom" constant="10" id="B3n-Lg-D3k"/>
+                            <constraint firstItem="nrA-Wb-dho" firstAttribute="top" secondItem="qBE-Bw-qw3" secondAttribute="bottom" constant="20" id="Eqa-fk-HEs"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LZA-oJ-WeA" secondAttribute="trailing" constant="30" id="JLY-su-ZHm"/>
-                            <constraint firstItem="nHN-bg-4jB" firstAttribute="top" secondItem="qBE-Bw-qw3" secondAttribute="bottom" constant="40" id="Jy6-gJ-hCH"/>
                             <constraint firstItem="LZA-oJ-WeA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="TgU-tu-00z"/>
                             <constraint firstItem="shX-q9-e0e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="WwZ-a6-vCf"/>
                             <constraint firstItem="qBE-Bw-qw3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="dGP-nM-ft6"/>
                             <constraint firstItem="nHN-bg-4jB" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="hLF-Hg-h1A"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="shX-q9-e0e" secondAttribute="trailing" constant="30" id="hiV-gQ-ySa"/>
+                            <constraint firstItem="nHN-bg-4jB" firstAttribute="top" secondItem="nrA-Wb-dho" secondAttribute="bottom" constant="10" id="i8J-7l-K8z"/>
                             <constraint firstItem="LZA-oJ-WeA" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="kQ4-4D-w7r"/>
                             <constraint firstItem="LZA-oJ-WeA" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="pee-Zm-m2K"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qBE-Bw-qw3" secondAttribute="trailing" constant="30" id="sJu-Pq-Tm9"/>
@@ -103,6 +92,15 @@
                             <constraint firstItem="nrA-Wb-dho" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="zcg-Jy-xf8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountContributionPercentageLabel" destination="ADl-Wm-UAl" id="8FY-TW-TSe"/>
+                        <outlet property="accountContributions" destination="shX-q9-e0e" id="bE5-bg-6L6"/>
+                        <outlet property="accountContributionsFiller" destination="rwA-2s-R4I" id="aQJ-0c-WjI"/>
+                        <outlet property="accountContributionsProgressContainer" destination="nrA-Wb-dho" id="iUz-Oh-5W8"/>
+                        <outlet property="accountNameLabel" destination="LZA-oJ-WeA" id="SJd-rm-mmY"/>
+                        <outlet property="accountNameType" destination="qBE-Bw-qw3" id="0ih-cu-67d"/>
+                        <outlet property="accountPlanValue" destination="nHN-bg-4jB" id="EDQ-BT-mNm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,14 +108,14 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.34299999475479126" green="0.75" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TextFieldBackground">
             <color red="0.11372549019607843" green="0.27450980392156865" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

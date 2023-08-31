@@ -20,6 +20,7 @@
 		FC60F5EE2AA0BAB9005BFD36 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60F5ED2AA0BAB9005BFD36 /* AccountsViewController.swift */; };
 		FC60F5F12AA0BAE2005BFD36 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60F5F02AA0BAE2005BFD36 /* UIColor+Extensions.swift */; };
 		FC60F5F62AA0BD8E005BFD36 /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60F5F52AA0BD8E005BFD36 /* AccountCollectionViewCell.swift */; };
+		FCD6CCC62AA0EF8B00FF5F63 /* CustomViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6CCC52AA0EF8B00FF5F63 /* CustomViews.swift */; };
 		FCE3DED72AA0C5F4003A2C9E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DED62AA0C5F4003A2C9E /* LoginViewModel.swift */; };
 		FCE3DED92AA0CCF5003A2C9E /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DED82AA0CCF5003A2C9E /* AccountsViewModel.swift */; };
 		FCE3DEDD2AA0D7B7003A2C9E /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DEDC2AA0D7B7003A2C9E /* SessionHandler.swift */; };
@@ -55,6 +56,7 @@
 		FC60F5ED2AA0BAB9005BFD36 /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		FC60F5F02AA0BAE2005BFD36 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		FC60F5F52AA0BD8E005BFD36 /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
+		FCD6CCC52AA0EF8B00FF5F63 /* CustomViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViews.swift; sourceTree = "<group>"; };
 		FCE3DED62AA0C5F4003A2C9E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FCE3DED82AA0CCF5003A2C9E /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
 		FCE3DEDC2AA0D7B7003A2C9E /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		B2CA46CA279350880041B3A5 /* MoneyBox */ = {
 			isa = PBXGroup;
 			children = (
+				FCD6CCC42AA0EF7F00FF5F63 /* CustomViews */,
 				FCE3DEDC2AA0D7B7003A2C9E /* SessionHandler.swift */,
 				FC60F5F22AA0BAED005BFD36 /* Features */,
 				FC60F5EF2AA0BAD0005BFD36 /* Extensions */,
@@ -178,6 +181,14 @@
 				FC2C8EDE2AA0A71F00D1D130 /* Login */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		FCD6CCC42AA0EF7F00FF5F63 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FCD6CCC52AA0EF8B00FF5F63 /* CustomViews.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		FCE3DEDE2AA0E887003A2C9E /* AccountDetailsScreen */ = {
@@ -309,6 +320,7 @@
 				FCE3DEDD2AA0D7B7003A2C9E /* SessionHandler.swift in Sources */,
 				FC60F5F62AA0BD8E005BFD36 /* AccountCollectionViewCell.swift in Sources */,
 				FCE3DED92AA0CCF5003A2C9E /* AccountsViewModel.swift in Sources */,
+				FCD6CCC62AA0EF8B00FF5F63 /* CustomViews.swift in Sources */,
 				FC60F5F12AA0BAE2005BFD36 /* UIColor+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
