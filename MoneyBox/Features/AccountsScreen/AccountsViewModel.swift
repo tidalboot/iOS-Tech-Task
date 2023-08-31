@@ -22,8 +22,8 @@ class AccountsViewModel {
         self.username = username
     }
     
-    func loadAccountDetails(withCompletion completion: @escaping (_ success: Bool) -> Void) {
-        SessionHandler.shared.loadAccountDetails { result in
+    func loadAccounts(withCompletion completion: @escaping (_ success: Bool) -> Void) {
+        SessionHandler.shared.loadAccounts { result in
             switch result {
             case .success(let response):
                 self.parseAccounts(from: response)
@@ -38,6 +38,7 @@ class AccountsViewModel {
         
         totalPlanValue = response.totalPlanValue
         guard let rawAccounts = response.accounts else { return }
+        
         let accounts: [AccountInformation] = rawAccounts.compactMap {
             guard let name = $0.name,
                   let value = $0.wrapper?.totalValue,

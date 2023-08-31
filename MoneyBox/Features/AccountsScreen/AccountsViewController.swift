@@ -37,7 +37,7 @@ class AccountsViewController: UIViewController {
         super.viewDidAppear(animated)
         setUpInitialElements()
         animateElementsIn {
-            self.loadAccountDetails()
+            self.loadAccounts()
         }
     }
     
@@ -81,8 +81,8 @@ class AccountsViewController: UIViewController {
         }
     }
     
-    private func loadAccountDetails() {
-        viewModel?.loadAccountDetails(withCompletion: { success in
+    private func loadAccounts() {
+        viewModel?.loadAccounts(withCompletion: { success in
             guard success else {
 //                showError()
                 return
@@ -94,6 +94,15 @@ class AccountsViewController: UIViewController {
                 self.accountsCollectionView.alpha = 1
             }
         })
+    }
+}
+
+extension AccountsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        
     }
 }
 
@@ -135,5 +144,9 @@ extension AccountsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         CGSize(width: collectionView.frame.size.width, height: 180)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        20
     }
 }

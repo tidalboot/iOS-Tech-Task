@@ -37,10 +37,14 @@ class SessionHandler {
         }
     }
     
-    func loadAccountDetails(withCompletion completion: @escaping (_ response: Result<AccountResponse, Error>) -> Void) {
+    func loadAccounts(withCompletion completion: @escaping (_ response: Result<AccountResponse, Error>) -> Void) {
         
         dataProvider.fetchProducts { result in
             completion(result)
         }
+    }
+    
+    func loadAccountDetails() {
+        
     }
 }
