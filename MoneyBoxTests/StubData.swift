@@ -16,10 +16,10 @@ struct StubData {
                 let result = try JSONDecoder().decode(V.self, from: data)
                 callback(.success(result))
             } catch {
-                callback(.failure(NSError.error(with: "stub decoding error")))
+                callback(.failure(NSError(domain: "stub decoding error", code: -123)))
             }
         } else {
-            callback(.failure(NSError.error(with: "no json file")))
+            callback(.failure(NSError(domain: "no json file", code: -321)))
         }
     }
 }
