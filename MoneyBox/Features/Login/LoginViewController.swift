@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    private let loginViewModel = LoginViewModel()
+    
     //MARK: - View outlets 🌁
     @IBOutlet weak var moneyboxLogoImageView: UIImageView!
     @IBOutlet weak var emailAddressTextField: UITextField!
@@ -44,9 +46,11 @@ class LoginViewController: UIViewController {
         loadingIndicator.alpha = 1
     }
     
-    //MARK: - Navidation Handlers ⛴️
+    //MARK: - Navigation Handlers ⛴️
     private func goToAccountScreen() {
-        present(AccountsViewController(), animated: false)
+        
+        guard let accountViewController = UIStoryboard.init(name: "Accounts", bundle: Bundle.main).instantiateViewController(withIdentifier: "AccountsVC") as? AccountsViewController else { return }
+        navigationController?.pushViewController(accountViewController, animated: false)
     }
     
     //MARK: - Logic Handlers 🤖
@@ -75,7 +79,23 @@ class LoginViewController: UIViewController {
     }
     
     private func continueLogin(withEmail email: String, andPassword password: String) {
+        
         setLoadingLoginButtonState()
+        
+        loginViewModel.handleLogin(withEmail: email, password: password) { succcess in
+            guard succcess else {
+                self.setDefaultLoginButtonState()
+                self.showGenericLoginError()
+                return
+            }
+            
+            self.animateOutAllElements {
+                self.goToAccountScreen()
+            }
+        }
+    }
+    
+    func animateOutAllElements(withCompletion completion: @escaping () -> Void) {
         
         UIView.animate(withDuration: 0.4, delay: 2) {
             self.moneyboxLogoImageView.alpha = 0
@@ -84,7 +104,7 @@ class LoginViewController: UIViewController {
             self.loginButton.alpha = 0
             self.loadingIndicator.alpha = 0
         } completion: { _ in
-            self.goToAccountScreen()
+            completion()
         }
     }
     

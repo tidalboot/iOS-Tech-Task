@@ -16,11 +16,11 @@
 		B2CA47672794D69A0041B3A5 /* StubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA47662794D69A0041B3A5 /* StubData.swift */; };
 		B2CA47712794D8E50041B3A5 /* LoginSucceed.json in Resources */ = {isa = PBXBuildFile; fileRef = B2CA47692794D6D70041B3A5 /* LoginSucceed.json */; };
 		B2CA47B42796052F0041B3A5 /* Accounts.json in Resources */ = {isa = PBXBuildFile; fileRef = B2CA47B2279604A10041B3A5 /* Accounts.json */; };
-		FC60F5EC2AA0BAAA005BFD36 /* Acounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC60F5EB2AA0BAAA005BFD36 /* Acounts.storyboard */; };
+		FC60F5EC2AA0BAAA005BFD36 /* Accounts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC60F5EB2AA0BAAA005BFD36 /* Accounts.storyboard */; };
 		FC60F5EE2AA0BAB9005BFD36 /* AccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60F5ED2AA0BAB9005BFD36 /* AccountsViewController.swift */; };
 		FC60F5F12AA0BAE2005BFD36 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60F5F02AA0BAE2005BFD36 /* UIColor+Extensions.swift */; };
-		FC60F5F42AA0BD26005BFD36 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC60F5F32AA0BD26005BFD36 /* AccountCell.xib */; };
 		FC60F5F62AA0BD8E005BFD36 /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60F5F52AA0BD8E005BFD36 /* AccountCollectionViewCell.swift */; };
+		FCE3DED72AA0C5F4003A2C9E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DED62AA0C5F4003A2C9E /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,11 +46,11 @@
 		B2CA47662794D69A0041B3A5 /* StubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubData.swift; sourceTree = "<group>"; };
 		B2CA47692794D6D70041B3A5 /* LoginSucceed.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginSucceed.json; sourceTree = "<group>"; };
 		B2CA47B2279604A10041B3A5 /* Accounts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Accounts.json; sourceTree = "<group>"; };
-		FC60F5EB2AA0BAAA005BFD36 /* Acounts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Acounts.storyboard; sourceTree = "<group>"; };
+		FC60F5EB2AA0BAAA005BFD36 /* Accounts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Accounts.storyboard; sourceTree = "<group>"; };
 		FC60F5ED2AA0BAB9005BFD36 /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		FC60F5F02AA0BAE2005BFD36 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
-		FC60F5F32AA0BD26005BFD36 /* AccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
 		FC60F5F52AA0BD8E005BFD36 /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
+		FCE3DED62AA0C5F4003A2C9E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +135,7 @@
 			children = (
 				B228EA6A2880B30B00B35F16 /* Login.storyboard */,
 				B228EA692880B30B00B35F16 /* LoginViewController.swift */,
+				FCE3DED62AA0C5F4003A2C9E /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -142,9 +143,8 @@
 		FC60F5EA2AA0BA8E005BFD36 /* AccountsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FC60F5EB2AA0BAAA005BFD36 /* Acounts.storyboard */,
+				FC60F5EB2AA0BAAA005BFD36 /* Accounts.storyboard */,
 				FC60F5ED2AA0BAB9005BFD36 /* AccountsViewController.swift */,
-				FC60F5F32AA0BD26005BFD36 /* AccountCell.xib */,
 				FC60F5F52AA0BD8E005BFD36 /* AccountCollectionViewCell.swift */,
 			);
 			path = AccountsScreen;
@@ -253,11 +253,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC60F5EC2AA0BAAA005BFD36 /* Acounts.storyboard in Resources */,
+				FC60F5EC2AA0BAAA005BFD36 /* Accounts.storyboard in Resources */,
 				B2CA46D82793508A0041B3A5 /* LaunchScreen.storyboard in Resources */,
 				B2CA47712794D8E50041B3A5 /* LoginSucceed.json in Resources */,
 				B2CA46D52793508A0041B3A5 /* Assets.xcassets in Resources */,
-				FC60F5F42AA0BD26005BFD36 /* AccountCell.xib in Resources */,
 				B228EA6C2880B30B00B35F16 /* Login.storyboard in Resources */,
 				B2CA47B42796052F0041B3A5 /* Accounts.json in Resources */,
 			);
@@ -279,6 +278,7 @@
 			files = (
 				B2CA46CC279350880041B3A5 /* AppDelegate.swift in Sources */,
 				FC60F5EE2AA0BAB9005BFD36 /* AccountsViewController.swift in Sources */,
+				FCE3DED72AA0C5F4003A2C9E /* LoginViewModel.swift in Sources */,
 				B228EA6B2880B30B00B35F16 /* LoginViewController.swift in Sources */,
 				FC60F5F62AA0BD8E005BFD36 /* AccountCollectionViewCell.swift in Sources */,
 				FC60F5F12AA0BAE2005BFD36 /* UIColor+Extensions.swift in Sources */,

@@ -13,11 +13,6 @@ class AccountsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupCollectionView()
-    }
-    
-    func setupCollectionView() {
-        accountsCollectionView.register(AccountCollectionViewCell.self, forCellWithReuseIdentifier: "accountCell")
     }
 }
 
@@ -34,5 +29,11 @@ extension AccountsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
+    }
+}
+
+extension AccountsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: collectionView.frame.size.width, height: 300)
     }
 }
