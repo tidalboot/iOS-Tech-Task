@@ -9,10 +9,49 @@ import UIKit
 
 class AccountsViewController: UIViewController {
     
+    var viewModel: AccountsViewModel?
+    
+    @IBOutlet weak var usernameLabelTopSpace: NSLayoutConstraint!
+    
     @IBOutlet weak var accountsCollectionView: UICollectionView!
+    @IBOutlet weak var accountsLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var planValueHeaderLabel: UILabel!
+    @IBOutlet weak var planValueLabel: UILabel!
+    
+    @IBOutlet weak var planValueLoadingIndicator: UIActivityIndicatorView!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setUpInitialElements()
+        animateElementsIn {
+            self.loadAccountDetails()
+        }
+    }
+    
+    private func setUpInitialElements() {
+        guard let username = viewModel?.username else { return }
+        usernameLabel.text = "Welcome back \(username)!"
+    }
+    
+    private func animateElementsIn(withCompletion completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.3) {
+            self.accountsLabel.alpha = 1
+        } completion: { _ in
+            self.usernameLabelTopSpace.constant = 10
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+                self.usernameLabel.alpha = 1
+                self.planValueHeaderLabel.alpha = 1
+            } completion: { _ in
+                self.planValueLoadingIndicator.alpha = 1
+                completion()
+            }
+        }
+    }
+    
+    private func loadAccountDetails() {
+        
     }
 }
 

@@ -18,32 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufn-cO-6Tf">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufn-cO-6Tf">
                                 <rect key="frame" x="30" y="89" width="333" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" name="TextFieldBackground"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back Nick!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgf-cx-z99">
-                                <rect key="frame" x="30" y="135" width="333" height="27.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgf-cx-z99">
+                                <rect key="frame" x="30" y="185" width="333" height="27.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
                                 <color key="textColor" name="TextFieldBackground"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Plan Value" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmN-OV-TFy">
-                                <rect key="frame" x="30" y="177.66666666666666" width="333" height="19.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Plan Value" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmN-OV-TFy">
+                                <rect key="frame" x="30" y="227.66666666666666" width="333" height="19.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <color key="textColor" name="TextFieldBackground"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£8,000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECT-X8-Vc7">
-                                <rect key="frame" x="30" y="202" width="333" height="26.333333333333343"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£8,000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECT-X8-Vc7">
+                                <rect key="frame" x="30" y="252.00000000000003" width="333" height="26.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bfC-15-7Gc">
-                                <rect key="frame" x="29" y="243" width="333" height="558"/>
+                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="T4g-2h-Prj">
+                                <rect key="frame" x="30" y="257" width="20" height="20"/>
+                                <color key="tintColor" name="AccentColor"/>
+                            </activityIndicatorView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bfC-15-7Gc">
+                                <rect key="frame" x="29" y="293" width="333" height="508"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pCJ-WH-aSi">
                                     <size key="itemSize" width="225" height="134"/>
@@ -100,14 +104,16 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bfC-15-7Gc" secondAttribute="trailing" constant="31" id="7Vu-SF-PNE"/>
                             <constraint firstItem="bfC-15-7Gc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="29" id="8nu-oF-wyr"/>
                             <constraint firstItem="bgf-cx-z99" firstAttribute="centerX" secondItem="ufn-cO-6Tf" secondAttribute="centerX" id="9Zb-U7-0c5"/>
-                            <constraint firstItem="bgf-cx-z99" firstAttribute="top" secondItem="ufn-cO-6Tf" secondAttribute="bottom" constant="10" id="AEj-VM-yfK"/>
+                            <constraint firstItem="bgf-cx-z99" firstAttribute="top" secondItem="ufn-cO-6Tf" secondAttribute="bottom" constant="60" id="AEj-VM-yfK"/>
                             <constraint firstItem="YmN-OV-TFy" firstAttribute="top" secondItem="bgf-cx-z99" secondAttribute="bottom" constant="15" id="OrR-ou-EfD"/>
                             <constraint firstItem="ECT-X8-Vc7" firstAttribute="centerX" secondItem="YmN-OV-TFy" secondAttribute="centerX" id="TNI-zB-9WK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ufn-cO-6Tf" secondAttribute="trailing" constant="30" id="X0F-24-RmW"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="bfC-15-7Gc" secondAttribute="bottom" constant="17" id="Z0c-5j-ShD"/>
                             <constraint firstItem="YmN-OV-TFy" firstAttribute="centerX" secondItem="bgf-cx-z99" secondAttribute="centerX" id="dKU-ae-gGL"/>
+                            <constraint firstItem="T4g-2h-Prj" firstAttribute="top" secondItem="YmN-OV-TFy" secondAttribute="bottom" constant="10" id="eJG-4o-Gxt"/>
                             <constraint firstItem="YmN-OV-TFy" firstAttribute="width" secondItem="bgf-cx-z99" secondAttribute="width" id="fC2-5n-n9l"/>
                             <constraint firstItem="ECT-X8-Vc7" firstAttribute="width" secondItem="YmN-OV-TFy" secondAttribute="width" id="gty-5I-2nm"/>
+                            <constraint firstItem="T4g-2h-Prj" firstAttribute="leading" secondItem="ECT-X8-Vc7" secondAttribute="leading" id="ivk-61-fq4"/>
                             <constraint firstItem="bfC-15-7Gc" firstAttribute="top" secondItem="ECT-X8-Vc7" secondAttribute="bottom" constant="14.666666666666657" id="jSk-i8-5Dk"/>
                             <constraint firstItem="ufn-cO-6Tf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="n5y-nl-qRG"/>
                             <constraint firstItem="ufn-cO-6Tf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="p6m-sk-d7t"/>
@@ -116,6 +122,12 @@
                     </view>
                     <connections>
                         <outlet property="accountsCollectionView" destination="bfC-15-7Gc" id="8dN-wK-dJw"/>
+                        <outlet property="accountsLabel" destination="ufn-cO-6Tf" id="kgQ-Dx-Y8m"/>
+                        <outlet property="planValueHeaderLabel" destination="YmN-OV-TFy" id="tpJ-xd-DLR"/>
+                        <outlet property="planValueLabel" destination="ECT-X8-Vc7" id="ipP-XU-T9o"/>
+                        <outlet property="planValueLoadingIndicator" destination="T4g-2h-Prj" id="H1v-Qx-OcN"/>
+                        <outlet property="usernameLabel" destination="bgf-cx-z99" id="anh-I0-SKE"/>
+                        <outlet property="usernameLabelTopSpace" destination="AEj-VM-yfK" id="dny-w9-Y4w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

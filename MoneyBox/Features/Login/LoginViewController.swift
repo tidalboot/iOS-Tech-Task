@@ -47,10 +47,11 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - Navigation Handlers ⛴️
-    private func goToAccountScreen() {
+    private func goToAccountScreen(forUser username: String) {
         
         guard let accountViewController = UIStoryboard.init(name: "Accounts", bundle: Bundle.main).instantiateViewController(withIdentifier: "AccountsVC") as? AccountsViewController else { return }
-        navigationController?.pushViewController(accountViewController, animated: false)
+        accountViewController.viewModel = AccountsViewModel(username: username)
+        navigationController?.setViewControllers([accountViewController], animated: false)
     }
     
     //MARK: - Logic Handlers 🤖
@@ -82,22 +83,22 @@ class LoginViewController: UIViewController {
         
         setLoadingLoginButtonState()
         
-        loginViewModel.handleLogin(withEmail: email, password: password) { succcess in
-            guard succcess else {
+        loginViewModel.handleLogin(withEmail: email, password: password) { username, succcess in
+            guard succcess, let username = username else {
                 self.setDefaultLoginButtonState()
                 self.showGenericLoginError()
                 return
             }
             
             self.animateOutAllElements {
-                self.goToAccountScreen()
+                self.goToAccountScreen(forUser: username)
             }
         }
     }
     
     func animateOutAllElements(withCompletion completion: @escaping () -> Void) {
         
-        UIView.animate(withDuration: 0.4, delay: 2) {
+        UIView.animate(withDuration: 0.4, delay: 0.5) {
             self.moneyboxLogoImageView.alpha = 0
             self.emailAddressTextField.alpha = 0
             self.passwordTextField.alpha = 0
