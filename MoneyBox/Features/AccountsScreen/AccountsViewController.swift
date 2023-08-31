@@ -7,6 +7,18 @@
 
 import UIKit
 
+extension Double {
+    func toPoundSterlingString() -> String {
+        "£\(self)"
+    }
+}
+
+extension Int {
+    func toPoundSterlingString() -> String {
+        "£\(self)"
+    }
+}
+
 class AccountsViewController: UIViewController {
     
     var viewModel: AccountsViewModel?
@@ -62,7 +74,7 @@ class AccountsViewController: UIViewController {
              to handle the different currency formatting systems such as
              €12,12 or €12 000 so for now we'll simply make this basic assumption
              */
-            self.planValueLabel.text = "£\(self.viewModel?.totalPlanValue ?? 0)"
+            self.planValueLabel.text = (self.viewModel?.totalPlanValue ?? 0).toPoundSterlingString()
             UIView.animate(withDuration: 0.3) {
                 self.planValueLabel.alpha = 1
             }
@@ -95,7 +107,8 @@ extension AccountsViewController: UICollectionViewDataSource {
         guard let model = viewModel else { return cell }
         guard !model.accounts.isEmpty else { return cell }
         
-        cell.planNameLabel.text = model.accounts[indexPath.row].name
+        let account = model.accounts[indexPath.row]
+        cell.planNameLabel.text = account.name
         /*
          Here we'll simply display pound sterling because
          we're only available in the UK
@@ -104,7 +117,9 @@ extension AccountsViewController: UICollectionViewDataSource {
          to handle the different currency formatting systems such as
          €12,12 or €12 000 so for now we'll simply make this basic assumption
          */
-        cell.planValueLabel.text = "Plan value: £\(model.accounts[indexPath.row].value)"
+        cell.planValueLabel.text = "Plan value: \(account.value.toPoundSterlingString())"
+        cell.planContributionsLabel.text = "Contributions: \(account.contributions.toPoundSterlingString())"
+        cell.earningsLabel.text = "Total earnings: \(account.contributions.toPoundSterlingString())"
         cell.alpha = 1
         cell.layer.cornerRadius = 10
         return cell
@@ -116,8 +131,9 @@ extension AccountsViewController: UICollectionViewDataSource {
 }
 
 extension AccountsViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        CGSize(width: collectionView.frame.size.width, height: 150)
+        CGSize(width: collectionView.frame.size.width, height: 180)
     }
 }

@@ -10,4 +10,6 @@ import UIKit
 class AccountCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var planNameLabel: UILabel!
     @IBOutlet weak var planValueLabel: UILabel!
+    @IBOutlet weak var planContributionsLabel: UILabel!
+    @IBOutlet weak var earningsLabel: UILabel!
 }
