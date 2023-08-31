@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneybox" translatesAutoresizingMaskIntoConstraints="NO" id="K1q-Py-9x2">
-                                <rect key="frame" x="57" y="423" width="300" height="50"/>
+                                <rect key="frame" x="57" y="430" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lSn-kA-1Mk"/>
                                 </constraints>
@@ -27,8 +27,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Background"/>
                         <constraints>
-                            <constraint firstItem="K1q-Py-9x2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aU9-Q0-3aO"/>
-                            <constraint firstItem="K1q-Py-9x2" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qk8-ke-NZS"/>
+                            <constraint firstItem="K1q-Py-9x2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="h32-Mr-ThG"/>
+                            <constraint firstItem="K1q-Py-9x2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mgg-Vm-Zdj"/>
                         </constraints>
                     </view>
                 </viewController>

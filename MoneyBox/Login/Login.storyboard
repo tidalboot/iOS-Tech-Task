@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nxe-uw-h5I">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="D3m-6j-bBI">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="nxe-uw-h5I" customClass="LoginViewController" customModule="MoneyBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="chM-je-gA4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moneybox" translatesAutoresizingMaskIntoConstraints="NO" id="dTh-aV-NBl">
+                                <rect key="frame" x="57" y="430" width="300" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="drN-e5-PoA"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kdH-iH-BVB">
+                                <rect key="frame" x="40" y="580" width="334" height="45"/>
+                                <color key="backgroundColor" name="Background"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="8KT-4w-1Hq"/>
+                                </constraints>
+                                <color key="textColor" name="AccentColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                <connections>
+                                    <action selector="userStartedEditingField:" destination="nxe-uw-h5I" eventType="editingChanged" id="Hes-hB-l7a"/>
+                                    <action selector="userTappedNext:" destination="nxe-uw-h5I" eventType="primaryActionTriggered" id="dLB-dJ-FxA"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VJD-B7-uyx">
+                                <rect key="frame" x="40" y="641" width="334" height="45"/>
+                                <color key="backgroundColor" name="Background"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="k28-4a-PoL"/>
+                                </constraints>
+                                <color key="textColor" name="AccentColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
+                                <connections>
+                                    <action selector="userStartedEditingField:" destination="nxe-uw-h5I" eventType="editingChanged" id="Z4b-VB-8kA"/>
+                                    <action selector="userTappedGo:" destination="nxe-uw-h5I" eventType="primaryActionTriggered" id="XX3-CD-TfB"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfs-9W-PJz">
+                                <rect key="frame" x="40" y="792" width="334" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jRW-lu-ybu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" name="GreyColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedLogin:" destination="nxe-uw-h5I" eventType="primaryActionTriggered" id="bZd-Be-lhp"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLZ-rA-BfT">
+                                <rect key="frame" x="40" y="704.5" width="334" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.094117647060000004" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kJ7-cm-iwP">
+                                <rect key="frame" x="197" y="807" width="20" height="20"/>
+                                <color key="color" name="GreyColor"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="acR-sl-ate"/>
+                        <color key="backgroundColor" name="Background"/>
+                        <constraints>
+                            <constraint firstItem="VJD-B7-uyx" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="Aqo-1s-0l9"/>
+                            <constraint firstItem="VJD-B7-uyx" firstAttribute="top" secondItem="kdH-iH-BVB" secondAttribute="bottom" constant="16" id="BNV-84-YhR"/>
+                            <constraint firstItem="kJ7-cm-iwP" firstAttribute="centerX" secondItem="Sfs-9W-PJz" secondAttribute="centerX" id="HFY-bf-tLH"/>
+                            <constraint firstItem="Sfs-9W-PJz" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="LAL-5r-Och"/>
+                            <constraint firstItem="dLZ-rA-BfT" firstAttribute="width" secondItem="VJD-B7-uyx" secondAttribute="width" id="LYN-pV-KQV"/>
+                            <constraint firstItem="dTh-aV-NBl" firstAttribute="centerY" secondItem="acR-sl-ate" secondAttribute="centerY" priority="2" id="Lgp-xa-STh"/>
+                            <constraint firstItem="acR-sl-ate" firstAttribute="trailing" secondItem="kdH-iH-BVB" secondAttribute="trailing" constant="40" id="OD4-yg-fkg"/>
+                            <constraint firstItem="VJD-B7-uyx" firstAttribute="width" secondItem="kdH-iH-BVB" secondAttribute="width" id="P3v-xZ-VZI"/>
+                            <constraint firstItem="kdH-iH-BVB" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="Rdc-Ko-x9Z"/>
+                            <constraint firstItem="kdH-iH-BVB" firstAttribute="top" secondItem="dTh-aV-NBl" secondAttribute="bottom" constant="100" id="V35-eW-hkm"/>
+                            <constraint firstItem="dTh-aV-NBl" firstAttribute="top" secondItem="acR-sl-ate" secondAttribute="top" priority="1" constant="30" id="WLL-HZ-pbD"/>
+                            <constraint firstItem="acR-sl-ate" firstAttribute="bottom" secondItem="Sfs-9W-PJz" secondAttribute="bottom" constant="20" id="Zqa-UO-QN2"/>
+                            <constraint firstItem="dLZ-rA-BfT" firstAttribute="top" secondItem="VJD-B7-uyx" secondAttribute="bottom" constant="18.5" id="dME-aS-mfr"/>
+                            <constraint firstItem="kJ7-cm-iwP" firstAttribute="centerY" secondItem="Sfs-9W-PJz" secondAttribute="centerY" id="f7M-kq-xd8"/>
+                            <constraint firstItem="Sfs-9W-PJz" firstAttribute="width" secondItem="VJD-B7-uyx" secondAttribute="width" id="msF-Uw-Pmu"/>
+                            <constraint firstItem="dTh-aV-NBl" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="oLz-NU-vwt"/>
+                            <constraint firstItem="kdH-iH-BVB" firstAttribute="leading" secondItem="acR-sl-ate" secondAttribute="leading" constant="40" id="om4-sW-Xz1"/>
+                            <constraint firstItem="dLZ-rA-BfT" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="upW-nA-fTN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailAddressTextField" destination="kdH-iH-BVB" id="22V-AD-Gyd"/>
+                        <outlet property="emailAddressTextFieldTopSpacing" destination="V35-eW-hkm" id="DS8-Ba-INP"/>
+                        <outlet property="informationalLabel" destination="dLZ-rA-BfT" id="axH-Z4-XAS"/>
+                        <outlet property="loadingIndicator" destination="kJ7-cm-iwP" id="u41-2E-1Y1"/>
+                        <outlet property="loginButton" destination="Sfs-9W-PJz" id="emY-k9-pl4"/>
+                        <outlet property="moneyBoxLogoImageViewTopSpacing" destination="WLL-HZ-pbD" id="gJU-Eo-hcw"/>
+                        <outlet property="moneyBoxLogoImageViewYCenter" destination="Lgp-xa-STh" id="Adb-Vs-QaC"/>
+                        <outlet property="moneyboxLogoImageView" destination="dTh-aV-NBl" id="iyA-VV-8wg"/>
+                        <outlet property="passwordTextField" destination="VJD-B7-uyx" id="UFr-Xq-Pmz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZo-gs-e4f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105.79710144927537" y="27.455357142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="moneybox" width="300" height="70"/>
+        <namedColor name="AccentColor">
+            <color red="0.34299999475479126" green="0.75" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Background">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GreyColor">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.94900000095367432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
