@@ -22,6 +22,7 @@
 		FC60F5F62AA0BD8E005BFD36 /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC60F5F52AA0BD8E005BFD36 /* AccountCollectionViewCell.swift */; };
 		FCE3DED72AA0C5F4003A2C9E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DED62AA0C5F4003A2C9E /* LoginViewModel.swift */; };
 		FCE3DED92AA0CCF5003A2C9E /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DED82AA0CCF5003A2C9E /* AccountsViewModel.swift */; };
+		FCE3DEDD2AA0D7B7003A2C9E /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DEDC2AA0D7B7003A2C9E /* SessionHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FC60F5F52AA0BD8E005BFD36 /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		FCE3DED62AA0C5F4003A2C9E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		FCE3DED82AA0CCF5003A2C9E /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
+		FCE3DEDC2AA0D7B7003A2C9E /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		B2CA46CA279350880041B3A5 /* MoneyBox */ = {
 			isa = PBXGroup;
 			children = (
+				FCE3DEDC2AA0D7B7003A2C9E /* SessionHandler.swift */,
 				FC60F5F22AA0BAED005BFD36 /* Features */,
 				FC60F5EF2AA0BAD0005BFD36 /* Extensions */,
 				B2CA46CB279350880041B3A5 /* AppDelegate.swift */,
@@ -283,6 +286,7 @@
 				FC60F5EE2AA0BAB9005BFD36 /* AccountsViewController.swift in Sources */,
 				FCE3DED72AA0C5F4003A2C9E /* LoginViewModel.swift in Sources */,
 				B228EA6B2880B30B00B35F16 /* LoginViewController.swift in Sources */,
+				FCE3DEDD2AA0D7B7003A2C9E /* SessionHandler.swift in Sources */,
 				FC60F5F62AA0BD8E005BFD36 /* AccountCollectionViewCell.swift in Sources */,
 				FCE3DED92AA0CCF5003A2C9E /* AccountsViewModel.swift in Sources */,
 				FC60F5F12AA0BAE2005BFD36 /* UIColor+Extensions.swift in Sources */,
