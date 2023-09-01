@@ -123,7 +123,6 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - Animations 🎭
-    
     func animateOutAllElements(withCompletion completion: @escaping () -> Void) {
         
         UIView.animate(withDuration: 0.4, delay: 0.5) {

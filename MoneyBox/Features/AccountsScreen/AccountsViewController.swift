@@ -7,32 +7,23 @@
 
 import UIKit
 
-extension Double {
-    func toPoundSterlingString() -> String {
-        "£\(self)"
-    }
-}
-
-extension Int {
-    func toPoundSterlingString() -> String {
-        "£\(self)"
-    }
-}
-
 class AccountsViewController: UIViewController {
     
+    //MARK: - View model 🧠
     var viewModel: AccountsViewModel?
     
+    //MARK: - Constraint outlets 🪢
     @IBOutlet weak var usernameLabelTopSpace: NSLayoutConstraint!
     
+    //MARK: - View outlets 🌁
     @IBOutlet weak var accountsCollectionView: UICollectionView!
     @IBOutlet weak var accountsLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var planValueHeaderLabel: UILabel!
     @IBOutlet weak var planValueLabel: UILabel!
-    
     @IBOutlet weak var planValueLoadingIndicator: UIActivityIndicatorView!
     
+    //MARK: - Baked in functions 🍞
     override func viewDidLoad() {
         super.viewDidLoad()
         view.subviews.forEach { $0.alpha = 0 }
@@ -46,51 +37,11 @@ class AccountsViewController: UIViewController {
         }
     }
     
+    //MARK: - State setters 🔨
     private func setUpInitialElements() {
         guard let username = viewModel?.username else { return }
         usernameLabel.text = "Welcome back \(username)!"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(promptLogOut))
-    }
-    
-    @objc private func promptLogOut() {
-        
-        let alert = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
-        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { _ in
-            self.logOut()
-        }))
-        self.present(alert, animated: true)
-    }
-    
-    private func logOut() {
-        
-        viewModel?.logOut()
-        
-        UIView.animate(withDuration: 0.3) {
-            self.view.subviews.forEach { $0.alpha = 0 }
-        } completion: { _ in
-            guard let loginViewController = UIStoryboard.init(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
-            loginViewController.showLogoutState = true
-            self.navigationController?.setViewControllers([loginViewController], animated: false)
-        }
-    }
-    
-    private func animateElementsIn(withCompletion completion: @escaping () -> Void) {
-        UIView.animate(withDuration: 0.3) {
-            self.accountsLabel.alpha = 1
-        } completion: { _ in
-            self.usernameLabelTopSpace.constant = 20
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-                self.usernameLabel.alpha = 1
-                self.planValueHeaderLabel.alpha = 1
-                self.planValueLabel.alpha = 0
-                self.accountsCollectionView.alpha = 0
-            } completion: { _ in
-                self.planValueLoadingIndicator.alpha = 1
-                completion()
-            }
-        }
     }
     
     private func refreshTotalValueLabel() {
@@ -112,19 +63,11 @@ class AccountsViewController: UIViewController {
         }
     }
     
-    private func loadAccounts() {
-        viewModel?.loadAccounts(withCompletion: { success in
-            guard success else {
-                self.showGenericErrorAlert()
-                return
-            }
-            
-            self.refreshTotalValueLabel()
-            self.accountsCollectionView.reloadData()
-            UIView.animate(withDuration: 0.4) {
-                self.accountsCollectionView.alpha = 1
-            }
-        })
+    //MARK: - Navigation Handlers ⛴️
+    private func goToLoginScreen() {
+        guard let loginViewController = UIStoryboard.init(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+        loginViewController.showLogoutState = true
+        self.navigationController?.setViewControllers([loginViewController], animated: false)
     }
     
     private func goToAccountDetailsScreen(forAccount account: AccountInformation) {
@@ -140,6 +83,63 @@ class AccountsViewController: UIViewController {
         )
         accountDetailsViewController.accountDetailsViewModel = accountDetailsViewModel
         navigationController?.pushViewController(accountDetailsViewController, animated: true)
+    }
+    
+    //MARK: - Interaction handlers 👉
+    @objc private func promptLogOut() {
+        
+        let alert = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { _ in
+            self.logOut()
+        }))
+        self.present(alert, animated: true)
+    }
+    
+    private func logOut() {
+        
+        viewModel?.logOut()
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.subviews.forEach { $0.alpha = 0 }
+        } completion: { _ in
+            self.goToLoginScreen()
+        }
+    }
+    
+    //MARK: - Animations 🎭
+    private func animateElementsIn(withCompletion completion: @escaping () -> Void) {
+        UIView.animate(withDuration: 0.3) {
+            self.accountsLabel.alpha = 1
+        } completion: { _ in
+            self.usernameLabelTopSpace.constant = 20
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+                self.usernameLabel.alpha = 1
+                self.planValueHeaderLabel.alpha = 1
+                self.planValueLabel.alpha = 0
+                self.accountsCollectionView.alpha = 0
+            } completion: { _ in
+                self.planValueLoadingIndicator.alpha = 1
+                completion()
+            }
+        }
+    }
+    
+    //MARK: - Logic Handlers 🤖
+    private func loadAccounts() {
+        viewModel?.loadAccounts(withCompletion: { success in
+            guard success else {
+                self.showGenericErrorAlert()
+                return
+            }
+            
+            self.refreshTotalValueLabel()
+            self.accountsCollectionView.reloadData()
+            UIView.animate(withDuration: 0.4) {
+                self.accountsCollectionView.alpha = 1
+            }
+        })
     }
 }
 
@@ -161,26 +161,15 @@ extension AccountsViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accountCell", for: indexPath)
             as? AccountCollectionViewCell
             else { fatalError("Could not find account cell") }
+        
         cell.alpha = 0
         guard let model = viewModel else { return cell }
         guard !model.accounts.isEmpty else { return cell }
         
         let account = model.accounts[indexPath.row]
-        cell.planNameLabel.text = account.name
-        /*
-         Here we'll simply display pound sterling because
-         we're only available in the UK
-         We can add additional safeguards later so we can dynamically
-         change or load the currency but doing so also requires us
-         to handle the different currency formatting systems such as
-         €12,12 or €12 000 so for now we'll simply make this basic assumption
-         */
-        cell.planValueLabel.text = "Plan value: \(account.value.toPoundSterlingString())"
-        cell.planContributionsLabel.text = "Moneybox: \(account.moneybox.toPoundSterlingString())"
-        cell.earningsLabel.text = "Total earnings: \(account.earnings.toPoundSterlingString())"
-        cell.chevronImage.image = cell.chevronImage.image?.withRenderingMode(.alwaysTemplate)
+        cell.configureCell(withAccountInformation: account)
         cell.alpha = 1
-        cell.layer.cornerRadius = 10
+        
         return cell
     }
     
