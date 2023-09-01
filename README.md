@@ -52,6 +52,7 @@ Alternatively if you want to make logging in easier for testing you can simply t
 
 -------
 
-
 Looking foward to getting your thoughts on the task and of course if you have questions feel free to reach out!
+
+p.s. Make sure to try the app out in dark mode, I definitely think the MoneyBox style colors look especially nice with the darker theme 😄
 
