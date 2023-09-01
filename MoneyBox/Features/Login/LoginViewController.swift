@@ -137,6 +137,7 @@ class LoginViewController: UIViewController {
             self.passwordTextField.alpha = 0
             self.loginButton.alpha = 0
             self.loadingIndicator.alpha = 0
+            self.forgottenPasswordButton.alpha = 0
         } completion: { _ in
             completion()
         }

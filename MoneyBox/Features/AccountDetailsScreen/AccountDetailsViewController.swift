@@ -83,7 +83,12 @@ class AccountDetailsViewController: UIViewController {
     }
     
     private func updatePerformanceDetailsLabel(withEarnings earnings: Double) {
-        let textToUse = earnings < 0 ? "The value of your account is currently lower than the amount you've contributed.\nRemember that if you're feeling uncertain or concerned about your investment you can always reach out to us" : "Geat news, the value of your account is higher than what you've contributed!"
+        let textToUse: String = {
+            guard earnings != 0 else {
+                return "Looking good, the value of your account is holding steady"
+            }
+            return earnings < 0 ? "The value of your account is currently lower than the amount you've contributed.\nRemember that if you're feeling uncertain or concerned about your investment you can always reach out to us" : "Geat news, the value of your account is higher than what you've contributed!"
+        }()
         performanceDetailsLabel.text = textToUse
     }
     
