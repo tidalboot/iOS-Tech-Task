@@ -25,6 +25,10 @@ class AccountsViewModel {
         self.username = username
     }
     
+    func logOut() {
+        SessionHandler.shared.logOut()
+    }
+    
     func loadAccounts(withCompletion completion: @escaping (_ success: Bool) -> Void) {
         SessionHandler.shared.loadAccounts { result in
             switch result {

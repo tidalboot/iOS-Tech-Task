@@ -20,7 +20,7 @@ class SessionHandler {
     
     static let shared = SessionHandler(dataProvider: DataProvider())
     private let dataProvider: DataProvider
-    private let sessionManager: SessionManager
+    private var sessionManager: SessionManager
     
     private var storedLoginRequest: LoginRequest?
     private var lastTokenRetrievalTime: Date?
@@ -43,7 +43,7 @@ class SessionHandler {
             return
         }
         
-        guard tokenHasExpired() else {
+        guard tokenHasExpired() == false else {
             completion(true)
             return
         }
@@ -57,6 +57,12 @@ class SessionHandler {
                     completion(false)
                 }
             }
+    }
+    
+    func logOut() {
+        lastTokenRetrievalTime = nil
+        storedLoginRequest = nil
+        sessionManager = SessionManager()
     }
     
     func logIn(withEmail email: String, password: String, andCompletion completion: @escaping (Result<LoginResponse, Error>) -> Void) {

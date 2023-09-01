@@ -33,7 +33,6 @@ class AccountsViewController: UIViewController {
     
     @IBOutlet weak var planValueLoadingIndicator: UIActivityIndicatorView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.subviews.forEach { $0.alpha = 0 }
@@ -50,6 +49,30 @@ class AccountsViewController: UIViewController {
     private func setUpInitialElements() {
         guard let username = viewModel?.username else { return }
         usernameLabel.text = "Welcome back \(username)!"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(promptLogOut))
+    }
+    
+    @objc private func promptLogOut() {
+        
+        let alert = UIAlertController(title: nil, message: "Are you sure you want to log out?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { _ in
+            self.logOut()
+        }))
+        self.present(alert, animated: true)
+    }
+    
+    private func logOut() {
+        
+        viewModel?.logOut()
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.subviews.forEach { $0.alpha = 0 }
+        } completion: { _ in
+            guard let loginViewController = UIStoryboard.init(name: "Login", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+            loginViewController.showLogoutState = true
+            self.navigationController?.setViewControllers([loginViewController], animated: false)
+        }
     }
     
     private func animateElementsIn(withCompletion completion: @escaping () -> Void) {
@@ -62,6 +85,7 @@ class AccountsViewController: UIViewController {
                 self.usernameLabel.alpha = 1
                 self.planValueHeaderLabel.alpha = 1
                 self.planValueLabel.alpha = 0
+                self.accountsCollectionView.alpha = 0
             } completion: { _ in
                 self.planValueLoadingIndicator.alpha = 1
                 completion()

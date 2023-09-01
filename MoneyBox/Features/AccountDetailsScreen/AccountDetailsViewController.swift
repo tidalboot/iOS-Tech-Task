@@ -81,7 +81,7 @@ class AccountDetailsViewController: UIViewController {
     }
     
     private func updatePerformanceLabel(withEarnings earnings: Double) {
-        performanceLabel.textColor = earnings < 0 ? .negativeRed : .green
+        performanceLabel.textColor = earnings < 0 ? .negativeRed : .positiveGreen
         performanceLabel.text = earnings.toPoundSterlingString()
     }
     

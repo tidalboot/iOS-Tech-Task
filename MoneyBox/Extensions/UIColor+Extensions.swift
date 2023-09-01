@@ -10,4 +10,5 @@ import UIKit
 extension UIColor {
     static let accentColor = UIColor(named: "AccentColor")
     static let negativeRed = UIColor(named: "NegativeRed")
+    static let positiveGreen = UIColor(named: "PositiveGreen")
 }

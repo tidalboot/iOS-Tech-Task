@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    var showLogoutState: Bool = false
+    
     private let loginViewModel = LoginViewModel()
     
     //MARK: - View outlets 🌁
@@ -26,10 +28,20 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        resetElements()
         styleElements()
+        
+        if showLogoutState {
+            showAllElementsStraightAway()
+            return
+        }
         animateLogoOut()
     }
     
+    private func resetElements() {
+        emailAddressTextField.text = nil
+        passwordTextField.text = nil
+    }
     
     //MARK: - Styling 💈
     private func styleElements() {
@@ -48,6 +60,8 @@ class LoginViewController: UIViewController {
     
     //MARK: - Navigation Handlers ⛴️
     private func goToAccountScreen(forUser username: String) {
+        
+        resetElements()
         
         guard let accountViewController = UIStoryboard.init(name: "Accounts", bundle: Bundle.main).instantiateViewController(withIdentifier: "AccountsVC") as? AccountsViewController else { return }
         accountViewController.viewModel = AccountsViewModel(username: username)
@@ -110,6 +124,29 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - Animations 🎭
+    
+    private func showAllElementsStraightAway() {
+        /*
+         If we're coming from having logged out we don't want to bother
+         showing the initial animations again so we'll just show the
+         customer the final login state
+         */
+        emailAddressTextFieldTopSpacing.constant = 40
+        moneyBoxLogoImageViewYCenter.priority = UILayoutPriority(1)
+        moneyBoxLogoImageViewTopSpacing.priority = UILayoutPriority(2)
+        
+        moneyboxLogoImageView.alpha = 0
+        
+        self.view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.3) {
+            self.emailAddressTextField.alpha = 1
+            self.passwordTextField.alpha = 1
+            self.moneyboxLogoImageView.alpha = 1
+            self.loginButton.alpha = 0.3
+        }
+    }
+    
     private func animateLogoOut() {
         
         /*
