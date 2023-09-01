@@ -36,7 +36,7 @@ class AccountsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.subviews.forEach { $0.alpha = 0 } 
+        view.subviews.forEach { $0.alpha = 0 }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -149,6 +149,7 @@ extension AccountsViewController: UICollectionViewDataSource {
         cell.planValueLabel.text = "Plan value: \(account.value.toPoundSterlingString())"
         cell.planContributionsLabel.text = "Moneybox: \(account.moneybox.toPoundSterlingString())"
         cell.earningsLabel.text = "Total earnings: \(account.earnings.toPoundSterlingString())"
+        cell.chevronImage.image = cell.chevronImage.image?.withRenderingMode(.alwaysTemplate)
         cell.alpha = 1
         cell.layer.cornerRadius = 10
         return cell

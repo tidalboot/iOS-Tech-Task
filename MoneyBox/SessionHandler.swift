@@ -6,6 +6,11 @@
 //
 
 import Networking
+import Foundation
+
+enum SessionHandlerErrors: Error {
+    case Generic
+}
 
 class SessionHandler {
     
@@ -17,9 +22,41 @@ class SessionHandler {
     private let dataProvider: DataProvider
     private let sessionManager: SessionManager
     
+    private var storedLoginRequest: LoginRequest?
+    private var lastTokenRetrievalTime: Date?
+    
     private init(dataProvider: DataProvider) {
         self.dataProvider = dataProvider
         self.sessionManager = SessionManager()
+    }
+    
+    //Perfect for testing
+    private func tokenHasExpired() -> Bool {
+        guard let lastTokenRetrievalTime = self.lastTokenRetrievalTime else { return true }
+        let timeBetweenNowAndLastToken = Date().timeIntervalSince(lastTokenRetrievalTime)
+        return timeBetweenNowAndLastToken > 300
+    }
+    
+    private func checkTokenFreshness(_ completion: @escaping (_ success: Bool) -> Void) {
+        guard let storedLoginRequest = storedLoginRequest else {
+            completion(false)
+            return
+        }
+        
+        guard tokenHasExpired() else {
+            completion(true)
+            return
+        }
+    
+        logIn(withEmail: storedLoginRequest.email,
+              password: storedLoginRequest.password) { result in
+                switch result {
+                case .success(_):
+                    completion(true)
+                case .failure(_):
+                    completion(false)
+                }
+            }
     }
     
     func logIn(withEmail email: String, password: String, andCompletion completion: @escaping (Result<LoginResponse, Error>) -> Void) {
@@ -31,23 +68,39 @@ class SessionHandler {
         dataProvider.login(request: loginRequest) { result in
             if let token = try? result.get().session.bearerToken {
                 self.sessionManager.setUserToken(token)
+                self.storedLoginRequest = loginRequest
+                self.lastTokenRetrievalTime = Date()
             }
             
             completion(result)
         }
     }
-    
+
     func loadAccounts(withCompletion completion: @escaping (_ response: Result<AccountResponse, Error>) -> Void) {
         
-        dataProvider.fetchProducts { result in
-            completion(result)
+        checkTokenFreshness { success in
+            guard success else {
+                completion(.failure(SessionHandlerErrors.Generic))
+                return
+            }
+            self.dataProvider.fetchProducts { result in
+                completion(result)
+            }
         }
     }
     
     func topUpAccount(forProductId productId: Int, withCompletion completion: @escaping (_ response: Result<OneOffPaymentResponse, Error>) -> Void) {
-        let oneOffPaymentRequest = OneOffPaymentRequest(amount: 10, investorProductID: productId)
-        dataProvider.addMoney(request: oneOffPaymentRequest) { result in
-            completion(result)
+        
+        checkTokenFreshness { success in
+            guard success else {
+                completion(.failure(SessionHandlerErrors.Generic))
+                return
+            }
+            
+            let oneOffPaymentRequest = OneOffPaymentRequest(amount: 10, investorProductID: productId)
+            self.dataProvider.addMoney(request: oneOffPaymentRequest) { result in
+                completion(result)
+            }
         }
     }
 }

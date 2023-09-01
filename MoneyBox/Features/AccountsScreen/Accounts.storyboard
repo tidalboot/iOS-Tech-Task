@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -47,7 +47,7 @@
                                 <color key="tintColor" name="AccentColor"/>
                             </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bfC-15-7Gc">
-                                <rect key="frame" x="29" y="217" width="333" height="584"/>
+                                <rect key="frame" x="29" y="227" width="333" height="591"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="20" id="pCJ-WH-aSi">
                                     <size key="itemSize" width="288" height="181"/>
@@ -76,23 +76,23 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="contributions" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="lih-rS-EVx">
-                                                    <rect key="frame" x="19.999999999999993" y="89.666666666666671" width="100.33333333333331" height="20.333333333333329"/>
+                                                    <rect key="frame" x="19.999999999999993" y="91.666666666666671" width="100.33333333333331" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="earnings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="yeT-CV-uI3">
-                                                    <rect key="frame" x="20" y="135" width="75.666666666666671" height="24"/>
+                                                    <rect key="frame" x="20" y="137" width="75.666666666666671" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ukv-b7-wep">
-                                                    <rect key="frame" x="250" y="77.666666666666671" width="30" height="26.333333333333329"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightChevron" translatesAutoresizingMaskIntoConstraints="NO" id="Ukv-b7-wep">
+                                                    <rect key="frame" x="255" y="78" width="25" height="25"/>
                                                     <color key="tintColor" name="AccentColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="dN4-Mi-SsS"/>
-                                                        <constraint firstAttribute="height" constant="30" id="kw6-M2-0GF"/>
+                                                        <constraint firstAttribute="width" constant="25" id="dN4-Mi-SsS"/>
+                                                        <constraint firstAttribute="height" constant="25" id="kw6-M2-0GF"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -105,7 +105,7 @@
                                                 <constraint firstItem="zRu-4A-fKb" firstAttribute="top" secondItem="gJM-7r-ibn" secondAttribute="bottom" constant="15" id="Hn0-CU-N3l"/>
                                                 <constraint firstItem="yeT-CV-uI3" firstAttribute="leading" secondItem="lih-rS-EVx" secondAttribute="leading" id="M3c-ls-FTh"/>
                                                 <constraint firstItem="lih-rS-EVx" firstAttribute="leading" secondItem="zRu-4A-fKb" secondAttribute="leading" id="OK4-0j-4xs"/>
-                                                <constraint firstItem="lih-rS-EVx" firstAttribute="top" secondItem="zRu-4A-fKb" secondAttribute="bottom" constant="8" id="eoY-jf-2sq"/>
+                                                <constraint firstItem="lih-rS-EVx" firstAttribute="top" secondItem="zRu-4A-fKb" secondAttribute="bottom" constant="10" id="eoY-jf-2sq"/>
                                                 <constraint firstItem="zRu-4A-fKb" firstAttribute="leading" secondItem="gJM-7r-ibn" secondAttribute="leading" id="pqo-uz-1He"/>
                                                 <constraint firstAttribute="trailing" secondItem="gJM-7r-ibn" secondAttribute="trailing" constant="20" id="xda-bL-LTs"/>
                                                 <constraint firstItem="gJM-7r-ibn" firstAttribute="leading" secondItem="0Ey-nb-ReM" secondAttribute="leading" constant="20" id="ypD-Uq-3cR"/>
@@ -114,6 +114,7 @@
                                         <color key="backgroundColor" name="GreyColor"/>
                                         <size key="customSize" width="288" height="181"/>
                                         <connections>
+                                            <outlet property="chevronImage" destination="Ukv-b7-wep" id="DPE-fA-bNO"/>
                                             <outlet property="earningsLabel" destination="yeT-CV-uI3" id="UrQ-Hw-TFt"/>
                                             <outlet property="planContributionsLabel" destination="lih-rS-EVx" id="0EO-49-xJm"/>
                                             <outlet property="planNameLabel" destination="gJM-7r-ibn" id="y00-jI-tP6"/>
@@ -139,12 +140,12 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ECT-X8-Vc7" secondAttribute="trailing" constant="30" id="Gwh-cT-khZ"/>
                             <constraint firstItem="YmN-OV-TFy" firstAttribute="top" secondItem="bgf-cx-z99" secondAttribute="bottom" constant="15" id="OrR-ou-EfD"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ufn-cO-6Tf" secondAttribute="trailing" constant="30" id="X0F-24-RmW"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="bfC-15-7Gc" secondAttribute="bottom" constant="17" id="Z0c-5j-ShD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="bfC-15-7Gc" secondAttribute="bottom" id="Z0c-5j-ShD"/>
                             <constraint firstItem="ECT-X8-Vc7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="bKo-iU-h0G"/>
                             <constraint firstItem="YmN-OV-TFy" firstAttribute="centerX" secondItem="bgf-cx-z99" secondAttribute="centerX" id="dKU-ae-gGL"/>
                             <constraint firstItem="T4g-2h-Prj" firstAttribute="top" secondItem="YmN-OV-TFy" secondAttribute="bottom" constant="10" id="eJG-4o-Gxt"/>
                             <constraint firstItem="YmN-OV-TFy" firstAttribute="width" secondItem="bgf-cx-z99" secondAttribute="width" id="fC2-5n-n9l"/>
-                            <constraint firstItem="bfC-15-7Gc" firstAttribute="top" secondItem="T4g-2h-Prj" secondAttribute="bottom" constant="10" id="lrc-Zy-1lL"/>
+                            <constraint firstItem="bfC-15-7Gc" firstAttribute="top" secondItem="T4g-2h-Prj" secondAttribute="bottom" constant="20" id="lrc-Zy-1lL"/>
                             <constraint firstItem="ufn-cO-6Tf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="n5y-nl-qRG"/>
                             <constraint firstItem="ufn-cO-6Tf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="p6m-sk-d7t"/>
                             <constraint firstItem="ECT-X8-Vc7" firstAttribute="top" secondItem="YmN-OV-TFy" secondAttribute="bottom" constant="5" id="xIM-2A-oAY"/>
@@ -166,7 +167,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.forward" catalog="system" width="97" height="128"/>
+        <image name="rightChevron" width="96" height="170"/>
         <namedColor name="AccentColor">
             <color red="0.34299999475479126" green="0.75" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

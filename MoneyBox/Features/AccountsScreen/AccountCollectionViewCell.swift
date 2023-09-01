@@ -12,4 +12,5 @@ class AccountCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var planValueLabel: UILabel!
     @IBOutlet weak var planContributionsLabel: UILabel!
     @IBOutlet weak var earningsLabel: UILabel!
+    @IBOutlet weak var chevronImage: UIImageView!
 }
