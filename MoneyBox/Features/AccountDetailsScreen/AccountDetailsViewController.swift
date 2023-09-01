@@ -48,7 +48,7 @@ class AccountDetailsViewController: UIViewController {
         accountNameLabel.text = accountDetailsViewModel?.accountName
         accountNameType.text = accountDetailsViewModel?.accountType
         accountPlanValue.text =  accountDetailsViewModel?.planValue.toPoundSterlingString()
-        accountContributions.text = accountDetailsViewModel?.contributions.toPoundSterlingString()
+        accountContributions.text = accountDetailsViewModel?.moneybox.toPoundSterlingString()
     }
     
     private func showElements() {
@@ -85,7 +85,7 @@ class AccountDetailsViewController: UIViewController {
         performanceLabel.text = earnings.toPoundSterlingString()
     }
     
-    private func showLoadingState() {
+    private func startLoadingState() {
         topUpLoadingIndicator.alpha = 1
         topUpButton.setTitle("", for: .normal)
         navigationController?.navigationBar.backItem?.backBarButtonItem?.isEnabled = false
@@ -97,10 +97,31 @@ class AccountDetailsViewController: UIViewController {
         navigationController?.navigationBar.backItem?.backBarButtonItem?.isEnabled = true
     }
     
+    private func reloadMoneyBoxAmount() {
+        UIView.animate(withDuration: 0.3) {
+            self.accountContributions.alpha = 0
+        } completion: { _ in
+            self.accountContributions.text = self.accountDetailsViewModel?.moneybox.toPoundSterlingString()
+            UIView.animate(withDuration: 0.3) {
+                self.accountContributions.alpha = 1
+            }
+        }
+    }
+    
     @IBAction func tappedTopUpButton() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        showLoadingState()
+        startLoadingState()
         
-        accountDetailsViewModel?.topUpAccount()
+        accountDetailsViewModel?.topUpAccount(withCompletion: { success in
+            self.stopLoadingState()
+            
+            guard success else {
+                self.showGenericErrorAlert()
+                return
+            }
+            
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+            self.reloadMoneyBoxAmount()
+        })
     }
 }

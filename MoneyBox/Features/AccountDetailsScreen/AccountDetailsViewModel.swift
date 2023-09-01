@@ -12,22 +12,35 @@ class AccountDetailsViewModel {
     let accountName: String
     let accountType: String
     let planValue: Double
-    let contributions: Int
+    private(set) var moneybox: Double
     let earnings: Double
     
-    init(accountName: String, accountType: String, planValue: Double, contributions: Int, earnings: Double) {
+    let investorProductId: Int
+    
+    init(accountName: String, accountType: String, planValue: Double, moneybox: Double, earnings: Double, investorProductId: Int) {
         self.accountName = accountName
         self.accountType = accountType
         self.planValue = planValue
-        self.contributions = contributions
+        self.moneybox = moneybox
         self.earnings = earnings
+        self.investorProductId = investorProductId
     }
     
-    func potProgress() -> Double {
-        Double(contributions) / planValue
-    }
-    
-    func topUpAccount() {
+    func topUpAccount(withCompletion completion: @escaping (_ success: Bool) -> Void) {
         
+        SessionHandler.shared.topUpAccount(
+            forProductId: investorProductId) { result in
+                switch result {
+                case .success(let response):
+                    if let newMoneyBoxValue = response.moneybox {
+                        self.moneybox = newMoneyBoxValue
+                        completion(true)
+                        return
+                    }
+                    completion(false)
+                case .failure(_):
+                    completion(false)
+                }
+            }
     }
 }

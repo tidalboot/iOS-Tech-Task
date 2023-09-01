@@ -27,6 +27,7 @@
 		FCE3DEE02AA0E898003A2C9E /* AccountDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE3DEDF2AA0E898003A2C9E /* AccountDetails.storyboard */; };
 		FCE3DEE22AA0E8B2003A2C9E /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DEE12AA0E8B2003A2C9E /* AccountDetailsViewController.swift */; };
 		FCE3DEE42AA0E8B9003A2C9E /* AccountDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DEE32AA0E8B9003A2C9E /* AccountDetailsViewModel.swift */; };
+		FCE8E0FC2AA1F8BC001B38A1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E0FB2AA1F8BC001B38A1 /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		FCE3DEDF2AA0E898003A2C9E /* AccountDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountDetails.storyboard; sourceTree = "<group>"; };
 		FCE3DEE12AA0E8B2003A2C9E /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		FCE3DEE32AA0E8B9003A2C9E /* AccountDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewModel.swift; sourceTree = "<group>"; };
+		FCE8E0FB2AA1F8BC001B38A1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				FC60F5F02AA0BAE2005BFD36 /* UIColor+Extensions.swift */,
+				FCE8E0FB2AA1F8BC001B38A1 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				FC60F5EE2AA0BAB9005BFD36 /* AccountsViewController.swift in Sources */,
 				FCE3DEE22AA0E8B2003A2C9E /* AccountDetailsViewController.swift in Sources */,
 				FCE3DED72AA0C5F4003A2C9E /* LoginViewModel.swift in Sources */,
+				FCE8E0FC2AA1F8BC001B38A1 /* UIViewController+Extensions.swift in Sources */,
 				B228EA6B2880B30B00B35F16 /* LoginViewController.swift in Sources */,
 				FCE3DEE42AA0E8B9003A2C9E /* AccountDetailsViewModel.swift in Sources */,
 				FCE3DEDD2AA0D7B7003A2C9E /* SessionHandler.swift in Sources */,

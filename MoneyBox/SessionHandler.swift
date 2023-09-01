@@ -44,7 +44,10 @@ class SessionHandler {
         }
     }
     
-    func loadAccountDetails() {
-        
+    func topUpAccount(forProductId productId: Int, withCompletion completion: @escaping (_ response: Result<OneOffPaymentResponse, Error>) -> Void) {
+        let oneOffPaymentRequest = OneOffPaymentRequest(amount: 10, investorProductID: productId)
+        dataProvider.addMoney(request: oneOffPaymentRequest) { result in
+            completion(result)
+        }
     }
 }

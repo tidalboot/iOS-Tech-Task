@@ -33,6 +33,12 @@ class AccountsViewController: UIViewController {
     
     @IBOutlet weak var planValueLoadingIndicator: UIActivityIndicatorView!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.subviews.forEach { $0.alpha = 0 } 
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setUpInitialElements()
@@ -55,6 +61,7 @@ class AccountsViewController: UIViewController {
                 self.view.layoutIfNeeded()
                 self.usernameLabel.alpha = 1
                 self.planValueHeaderLabel.alpha = 1
+                self.planValueLabel.alpha = 0
             } completion: { _ in
                 self.planValueLoadingIndicator.alpha = 1
                 completion()
@@ -84,7 +91,7 @@ class AccountsViewController: UIViewController {
     private func loadAccounts() {
         viewModel?.loadAccounts(withCompletion: { success in
             guard success else {
-//                showError()
+                self.showGenericErrorAlert()
                 return
             }
             
@@ -110,8 +117,9 @@ extension AccountsViewController: UICollectionViewDelegate {
             accountName: account.name,
             accountType: account.type,
             planValue: account.value,
-            contributions: account.contributions,
-            earnings: account.earnings
+            moneybox: account.moneybox,
+            earnings: account.earnings,
+            investorProductId: account.id
         )
         accountDetailsViewController.accountDetailsViewModel = accountDetailsViewModel
         navigationController?.pushViewController(accountDetailsViewController, animated: true)
@@ -139,7 +147,7 @@ extension AccountsViewController: UICollectionViewDataSource {
          €12,12 or €12 000 so for now we'll simply make this basic assumption
          */
         cell.planValueLabel.text = "Plan value: \(account.value.toPoundSterlingString())"
-        cell.planContributionsLabel.text = "Contributions: \(account.contributions.toPoundSterlingString())"
+        cell.planContributionsLabel.text = "Moneybox: \(account.moneybox.toPoundSterlingString())"
         cell.earningsLabel.text = "Total earnings: \(account.earnings.toPoundSterlingString())"
         cell.alpha = 1
         cell.layer.cornerRadius = 10

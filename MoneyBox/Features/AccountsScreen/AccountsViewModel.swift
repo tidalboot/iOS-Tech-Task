@@ -10,9 +10,10 @@ import Networking
 struct AccountInformation {
     let name: String
     let value: Double
-    let contributions: Int
+    let moneybox: Double
     let type: String
     let earnings: Double
+    let id: Int
 }
 
 class AccountsViewModel {
@@ -40,15 +41,16 @@ class AccountsViewModel {
         
         totalPlanValue = response.totalPlanValue
         
-        guard let rawAccounts = response.accounts else { return }
+        guard let rawProducts = response.productResponses else { return }
         
-        let accounts: [AccountInformation] = rawAccounts.compactMap {
-            guard let name = $0.name,
-                  let value = $0.wrapper?.totalValue,
-                  let contributions = $0.wrapper?.totalContributions,
-                  let type = $0.type,
-                  let earnings = $0.wrapper?.earningsNet else { return nil }
-            return AccountInformation(name: name, value: value, contributions: contributions, type: type, earnings: earnings)
+        let accounts: [AccountInformation] = rawProducts.compactMap {
+            guard let name = $0.product?.name,
+                  let value = $0.planValue,
+                  let type = $0.product?.type,
+                  let earnings = $0.investorAccount?.earningsNet,
+                  let moneyBox = $0.moneybox,
+                  let id = $0.id else { return nil }
+            return AccountInformation(name: name, value: value, moneybox: moneyBox, type: type, earnings: earnings, id: id)
         }
         self.accounts = accounts
     }
