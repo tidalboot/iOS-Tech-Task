@@ -12,15 +12,9 @@ enum SessionHandlerErrors: Error {
     case Generic
 }
 
-extension Date {
-    func hasFiveMinutesPassedSinceDate(_ dateToCheck: Date) -> Bool {
-        timeIntervalSince(dateToCheck) >= 300
-    }
-}
-
 class SessionHandler {
     
-    private let testing = true
+    private let testing = false
     private let testUsername = "test+ios2@moneyboxapp.com"
     private let testPassword = "P455word12"
     

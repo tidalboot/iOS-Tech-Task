@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLZ-rA-BfT">
-                                <rect key="frame" x="40" y="726.5" width="334" height="0.0"/>
+                                <rect key="frame" x="40" y="771" width="334" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.094117647060000004" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -78,6 +78,16 @@
                                 <rect key="frame" x="197" y="807" width="20" height="20"/>
                                 <color key="color" name="GreyColor"/>
                             </activityIndicatorView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26P-F0-Ux5">
+                                <rect key="frame" x="108" y="726" width="198" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Forgot your password?">
+                                    <color key="baseForegroundColor" name="AccentColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedForgottenPassword" destination="nxe-uw-h5I" eventType="touchUpInside" id="aQN-4m-num"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="acR-sl-ate"/>
                         <color key="backgroundColor" name="Background"/>
@@ -85,20 +95,22 @@
                             <constraint firstItem="VJD-B7-uyx" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="Aqo-1s-0l9"/>
                             <constraint firstItem="VJD-B7-uyx" firstAttribute="top" secondItem="kdH-iH-BVB" secondAttribute="bottom" constant="16" id="BNV-84-YhR"/>
                             <constraint firstItem="kJ7-cm-iwP" firstAttribute="centerX" secondItem="Sfs-9W-PJz" secondAttribute="centerX" id="HFY-bf-tLH"/>
+                            <constraint firstItem="26P-F0-Ux5" firstAttribute="top" secondItem="VJD-B7-uyx" secondAttribute="bottom" constant="18" id="JQV-P7-FSJ"/>
                             <constraint firstItem="Sfs-9W-PJz" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="LAL-5r-Och"/>
                             <constraint firstItem="dLZ-rA-BfT" firstAttribute="width" secondItem="VJD-B7-uyx" secondAttribute="width" id="LYN-pV-KQV"/>
                             <constraint firstItem="dTh-aV-NBl" firstAttribute="centerY" secondItem="acR-sl-ate" secondAttribute="centerY" priority="2" id="Lgp-xa-STh"/>
                             <constraint firstItem="acR-sl-ate" firstAttribute="trailing" secondItem="kdH-iH-BVB" secondAttribute="trailing" constant="40" id="OD4-yg-fkg"/>
                             <constraint firstItem="VJD-B7-uyx" firstAttribute="width" secondItem="kdH-iH-BVB" secondAttribute="width" id="P3v-xZ-VZI"/>
+                            <constraint firstItem="dLZ-rA-BfT" firstAttribute="top" secondItem="26P-F0-Ux5" secondAttribute="bottom" constant="10" id="RKe-rS-uvs"/>
                             <constraint firstItem="kdH-iH-BVB" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="Rdc-Ko-x9Z"/>
                             <constraint firstItem="kdH-iH-BVB" firstAttribute="top" secondItem="dTh-aV-NBl" secondAttribute="bottom" constant="100" id="V35-eW-hkm"/>
                             <constraint firstItem="dTh-aV-NBl" firstAttribute="top" secondItem="acR-sl-ate" secondAttribute="top" priority="1" constant="30" id="WLL-HZ-pbD"/>
                             <constraint firstItem="acR-sl-ate" firstAttribute="bottom" secondItem="Sfs-9W-PJz" secondAttribute="bottom" constant="20" id="Zqa-UO-QN2"/>
-                            <constraint firstItem="dLZ-rA-BfT" firstAttribute="top" secondItem="VJD-B7-uyx" secondAttribute="bottom" constant="18.5" id="dME-aS-mfr"/>
                             <constraint firstItem="kJ7-cm-iwP" firstAttribute="centerY" secondItem="Sfs-9W-PJz" secondAttribute="centerY" id="f7M-kq-xd8"/>
                             <constraint firstItem="Sfs-9W-PJz" firstAttribute="width" secondItem="VJD-B7-uyx" secondAttribute="width" id="msF-Uw-Pmu"/>
                             <constraint firstItem="dTh-aV-NBl" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="oLz-NU-vwt"/>
                             <constraint firstItem="kdH-iH-BVB" firstAttribute="leading" secondItem="acR-sl-ate" secondAttribute="leading" constant="40" id="om4-sW-Xz1"/>
+                            <constraint firstItem="26P-F0-Ux5" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="qKi-HU-bub"/>
                             <constraint firstItem="dLZ-rA-BfT" firstAttribute="centerX" secondItem="acR-sl-ate" secondAttribute="centerX" id="upW-nA-fTN"/>
                         </constraints>
                     </view>
@@ -106,6 +118,7 @@
                     <connections>
                         <outlet property="emailAddressTextField" destination="kdH-iH-BVB" id="22V-AD-Gyd"/>
                         <outlet property="emailAddressTextFieldTopSpacing" destination="V35-eW-hkm" id="DS8-Ba-INP"/>
+                        <outlet property="forgottenPasswordButton" destination="26P-F0-Ux5" id="Vd5-05-QQT"/>
                         <outlet property="informationalLabel" destination="dLZ-rA-BfT" id="axH-Z4-XAS"/>
                         <outlet property="loadingIndicator" destination="kJ7-cm-iwP" id="u41-2E-1Y1"/>
                         <outlet property="loginButton" destination="Sfs-9W-PJz" id="emY-k9-pl4"/>

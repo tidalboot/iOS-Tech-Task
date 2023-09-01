@@ -10,7 +10,6 @@ import UIKit
 
 class AccountDetailsViewController: UIViewController {
     
-    //MARK: - View model 🧠
     var accountDetailsViewModel: AccountDetailsViewModel?
     
     //MARK: - View outlets 🌁
@@ -20,6 +19,7 @@ class AccountDetailsViewController: UIViewController {
     @IBOutlet weak var performanceDetailsLabel: UILabel!
     //Account details outlets
     @IBOutlet weak var accountNameLabel: UILabel!
+    @IBOutlet weak var accountNameTypeTitle: UILabel!
     @IBOutlet weak var accountNameType: UILabel!
     @IBOutlet weak var accountPlanValueTitle: UILabel!
     @IBOutlet weak var accountPlanValue: UILabel!
@@ -54,6 +54,7 @@ class AccountDetailsViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.accountNameLabel.alpha = 1
             self.accountNameType.alpha = 1
+            self.accountNameTypeTitle.alpha = 1
             self.accountPlanValue.alpha = 1
             self.accountPlanValueTitle.alpha = 1
             self.accountContributions.alpha = 1

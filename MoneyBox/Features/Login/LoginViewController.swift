@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var informationalLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var forgottenPasswordButton: UIButton!
     
     //MARK: - Constraint outlets 🪢
     @IBOutlet weak var moneyBoxLogoImageViewYCenter: NSLayoutConstraint!
@@ -42,6 +43,12 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - State setters 🔨
+    private func showForgottenPasswordHelp() {
+        let alert = UIAlertController(title: "Password recovery", message: "Forgotten your password?\nCheck the source code 👀 (SessionHandler🕵️) ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "👌", style: .default))
+        self.present(alert, animated: true)
+    }
+    
     private func resetElements() {
         emailAddressTextField.text = nil
         passwordTextField.text = nil
@@ -70,7 +77,6 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 10
     }
 
-    
     //MARK: - Navigation Handlers ⛴️
     private func goToAccountScreen(forUser userDetails: UserDetails) {
         
@@ -155,11 +161,11 @@ class LoginViewController: UIViewController {
             self.passwordTextField.alpha = 1
             self.moneyboxLogoImageView.alpha = 1
             self.loginButton.alpha = 0.3
+            self.forgottenPasswordButton.alpha = 1
         }
     }
     
     private func animateLogoOut() {
-        
         /*
          First we slide up the MoneyBox logo that we've placed in the same
          place as the launch screen for a seemless view
@@ -174,7 +180,6 @@ class LoginViewController: UIViewController {
     }
     
     private func animateLogInElementsIn() {
-        
         /*
          Then we both animate the login text fields in
          and then subsequently show the login button.
@@ -187,6 +192,7 @@ class LoginViewController: UIViewController {
             self.view.layoutIfNeeded()
             self.emailAddressTextField.alpha = 1
             self.passwordTextField.alpha = 1
+            self.forgottenPasswordButton.alpha = 1
         } completion: { _ in
             UIView.animate(withDuration: 0.3) {
                 self.loginButton.alpha = 0.3
@@ -217,6 +223,7 @@ class LoginViewController: UIViewController {
             self.informationalLabel.alpha = 0
         } completion: { _ in
             self.informationalLabel.text = ""
+            self.informationalLabel.alpha = 1
         }
 
         informationalLabel.textColor = .systemRed
@@ -236,14 +243,18 @@ class LoginViewController: UIViewController {
         handleLogin()
     }
     
+    @IBAction func tappedForgottenPassword() {
+        showForgottenPasswordHelp()
+    }
+    
     //MARK: - Text Field Delegate Handlers ✏️
     @IBAction func userStartedEditingField(_ sender: UITextField) {
         sender.textColor = .accentColor
+
         setDefaultLoginButtonState()
         hideGenericLoginError()
         
         guard checkForBothFieldsBeingFilled() else { return }
         enableLoginButton()
     }
-
 }
