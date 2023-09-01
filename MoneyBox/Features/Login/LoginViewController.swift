@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - State setters 🔨
     private func showForgottenPasswordHelp() {
-        let alert = UIAlertController(title: "Password recovery", message: "Forgotten your password?\nCheck the source code 👀 (SessionHandler🕵️) ", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Password recovery", message: "Forgotten your password?\nCheck the source code 🕵️ (SessionHandler 👀) ", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "👌", style: .default))
         self.present(alert, animated: true)
     }
