@@ -126,17 +126,10 @@ class AccountsViewController: UIViewController {
             }
         })
     }
-}
-
-extension AccountsViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+    private func goToAccountDetailsScreen(forAccount account: AccountInformation) {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         guard let accountDetailsViewController = UIStoryboard.init(name: "AccountDetails", bundle: Bundle.main).instantiateViewController(withIdentifier: "AccountDetails") as? AccountDetailsViewController else { return }
-        
-        guard let viewModel = self.viewModel else { return }
-        let account = viewModel.accounts[indexPath.row]
         let accountDetailsViewModel = AccountDetailsViewModel(
             accountName: account.name,
             accountType: account.type,
@@ -147,6 +140,18 @@ extension AccountsViewController: UICollectionViewDelegate {
         )
         accountDetailsViewController.accountDetailsViewModel = accountDetailsViewModel
         navigationController?.pushViewController(accountDetailsViewController, animated: true)
+    }
+}
+
+extension AccountsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let viewModel = self.viewModel else { return }
+        guard indexPath.row <= viewModel.accounts.count - 1 else { return }
+        
+        let account = viewModel.accounts[indexPath.row]
+        goToAccountDetailsScreen(forAccount: account)
     }
 }
 

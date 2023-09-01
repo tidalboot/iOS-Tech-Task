@@ -9,8 +9,10 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    //MARK: - State handlers 📦
     var showLogoutState: Bool = false
     
+    //MARK: - View model 🧠
     private let loginViewModel = LoginViewModel()
     
     //MARK: - View outlets 🌁
@@ -26,6 +28,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var moneyBoxLogoImageViewTopSpacing: NSLayoutConstraint!
     @IBOutlet weak var emailAddressTextFieldTopSpacing: NSLayoutConstraint!
     
+    //MARK: - Baked in functions 🍞
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         resetElements()
@@ -38,14 +41,10 @@ class LoginViewController: UIViewController {
         animateLogoOut()
     }
     
+    //MARK: - State setters 🔨
     private func resetElements() {
         emailAddressTextField.text = nil
         passwordTextField.text = nil
-    }
-    
-    //MARK: - Styling 💈
-    private func styleElements() {
-        loginButton.layer.cornerRadius = 10
     }
     
     private func setDefaultLoginButtonState() {
@@ -58,6 +57,20 @@ class LoginViewController: UIViewController {
         loadingIndicator.alpha = 1
     }
     
+    private func enableLoginButton() {
+        UIView.animate(withDuration: 0.3) {
+            self.loginButton.alpha = 1
+        } completion: { _ in
+            self.loginButton.isEnabled = true
+        }
+    }
+    
+    //MARK: - Styling 💈
+    private func styleElements() {
+        loginButton.layer.cornerRadius = 10
+    }
+
+    
     //MARK: - Navigation Handlers ⛴️
     private func goToAccountScreen(forUser username: String) {
         
@@ -69,7 +82,6 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - Logic Handlers 🤖
-    
     private func checkForBothFieldsBeingFilled() -> Bool {
         emailAddressTextField.text != nil &&
         passwordTextField.text != nil &&
@@ -110,6 +122,8 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //MARK: - Animations 🎭
+    
     func animateOutAllElements(withCompletion completion: @escaping () -> Void) {
         
         UIView.animate(withDuration: 0.4, delay: 0.5) {
@@ -122,8 +136,6 @@ class LoginViewController: UIViewController {
             completion()
         }
     }
-    
-    //MARK: - Animations 🎭
     
     private func showAllElementsStraightAway() {
         /*
@@ -182,15 +194,8 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
-    private func enableLoginButton() {
-        UIView.animate(withDuration: 0.3) {
-            self.loginButton.alpha = 1
-        } completion: { _ in
-            self.loginButton.isEnabled = true
-        }
-    }
-    
+
+    //MARK: - Error handlers ⚠️
     private func showEmailError() {
         emailAddressTextField.textColor = .systemRed
         showGenericLoginError()
@@ -223,6 +228,15 @@ class LoginViewController: UIViewController {
         handleLogin()
     }
     
+    @IBAction func userTappedNext(_ sender: UITextField) {
+        passwordTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func userTappedGo(_ sender: UITextField) {
+        passwordTextField.resignFirstResponder()
+        handleLogin()
+    }
+    
     //MARK: - Text Field Delegate Handlers ✏️
     @IBAction func userStartedEditingField(_ sender: UITextField) {
         sender.textColor = .accentColor
@@ -232,13 +246,5 @@ class LoginViewController: UIViewController {
         guard checkForBothFieldsBeingFilled() else { return }
         enableLoginButton()
     }
-    
-    @IBAction func userTappedNext(_ sender: UITextField) {
-        passwordTextField.becomeFirstResponder()
-    }
-    
-    @IBAction func userTappedGo(_ sender: UITextField) {
-        passwordTextField.resignFirstResponder()
-        handleLogin()
-    }
+
 }
