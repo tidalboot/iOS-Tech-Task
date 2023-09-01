@@ -110,7 +110,8 @@ extension AccountsViewController: UICollectionViewDelegate {
             accountName: account.name,
             accountType: account.type,
             planValue: account.value,
-            contributions: account.contributions
+            contributions: account.contributions,
+            earnings: account.earnings
         )
         accountDetailsViewController.accountDetailsViewModel = accountDetailsViewModel
         navigationController?.pushViewController(accountDetailsViewController, animated: true)

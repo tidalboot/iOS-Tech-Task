@@ -12,57 +12,95 @@ class AccountDetailsViewController: UIViewController {
     
     var accountDetailsViewModel: AccountDetailsViewModel?
     
+    @IBOutlet weak var accountPerformanceHolder: UIView!
+    @IBOutlet weak var performanceLabel: UILabel!
+    @IBOutlet weak var performanceDetailsLabel: UILabel!
+    
     @IBOutlet weak var accountNameLabel: UILabel!
     @IBOutlet weak var accountNameType: UILabel!
+    @IBOutlet weak var accountPlanValueTitle: UILabel!
     @IBOutlet weak var accountPlanValue: UILabel!
+    
+    @IBOutlet weak var accountContributionsTitle: UILabel!
     @IBOutlet weak var accountContributions: UILabel!
     
-    @IBOutlet weak var accountContributionPercentageLabel: UILabel!
-    @IBOutlet weak var accountContributionsProgressContainer: UIView!
-    @IBOutlet weak var accountContributionsFiller: UIView!
+    @IBOutlet weak var topUpButton: UIButton!
+    @IBOutlet weak var topUpLoadingIndicator: UIActivityIndicatorView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.subviews.forEach { $0.alpha = 0 }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         applyViewModel()
         showElements()
+        styleElements()
+    }
+    
+    //MARK: - Styling 💈
+    private func styleElements() {
+        topUpButton.layer.cornerRadius = 10
     }
     
     private func applyViewModel( ){
         accountNameLabel.text = accountDetailsViewModel?.accountName
         accountNameType.text = accountDetailsViewModel?.accountType
-        accountPlanValue.text = "Plan Value: \(accountDetailsViewModel?.planValue.toPoundSterlingString() ?? "")"
-        accountContributions.text = "Contributions: \(accountDetailsViewModel?.contributions.toPoundSterlingString() ?? "")"
+        accountPlanValue.text =  accountDetailsViewModel?.planValue.toPoundSterlingString()
+        accountContributions.text = accountDetailsViewModel?.contributions.toPoundSterlingString()
     }
     
     private func showElements() {
-        
-        accountContributionsProgressContainer.layer.borderColor = UIColor.accentColor?.cgColor
-        accountContributionsProgressContainer.layer.borderWidth = 1
         
         UIView.animate(withDuration: 0.3) {
             self.accountNameLabel.alpha = 1
             self.accountNameType.alpha = 1
             self.accountPlanValue.alpha = 1
+            self.accountPlanValueTitle.alpha = 1
             self.accountContributions.alpha = 1
+            self.accountContributionsTitle.alpha = 1
         } completion: { _ in
-//            self.showPotProgress()
+            self.showPerformanceDetails()
         }
     }
     
-    private func showPotProgress() {
+    private func showPerformanceDetails() {
+        guard let earnings = accountDetailsViewModel?.earnings else { return }
         
-        let heightAnchor = [ accountContributionsFiller.heightAnchor.constraint(equalTo: accountContributionsProgressContainer.heightAnchor, multiplier: accountDetailsViewModel?.potProgress() ?? 0)
-                             ]
-        NSLayoutConstraint.activate(heightAnchor)
-        
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
-        } completion: { _ in
-            let progress = Int((self.accountDetailsViewModel?.potProgress() ?? 0) * 100)
-            self.accountContributionPercentageLabel.text = "\(progress)%"
-            UIView.animate(withDuration: 0.3) {
-                self.accountContributionPercentageLabel.alpha = 1
-            }
+        updatePerformanceLabel(withEarnings: earnings)
+        updatePerformanceDetailsLabel(withEarnings: earnings)
+        UIView.animate(withDuration: 0.3) {
+            self.accountPerformanceHolder.alpha = 1
         }
+    }
+    
+    private func updatePerformanceDetailsLabel(withEarnings earnings: Double) {
+        let textToUse = earnings < 0 ? "The value of your account is currently lower than the amount you've contributed.\nRemember that if you're feeling uncertain or concerned about your investment you can always reach out to us" : "Geat news, the value of your account is higher than what you've contributed!"
+        performanceDetailsLabel.text = textToUse
+    }
+    
+    private func updatePerformanceLabel(withEarnings earnings: Double) {
+        performanceLabel.textColor = earnings < 0 ? .negativeRed : .green
+        performanceLabel.text = earnings.toPoundSterlingString()
+    }
+    
+    private func showLoadingState() {
+        topUpLoadingIndicator.alpha = 1
+        topUpButton.setTitle("", for: .normal)
+        navigationController?.navigationBar.backItem?.backBarButtonItem?.isEnabled = false
+    }
+    
+    private func stopLoadingState() {
+        topUpLoadingIndicator.alpha = 0
+        topUpButton.setTitle("Add £10", for: .normal)
+        navigationController?.navigationBar.backItem?.backBarButtonItem?.isEnabled = true
+    }
+    
+    @IBAction func tappedTopUpButton() {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        showLoadingState()
+        
+        accountDetailsViewModel?.topUpAccount()
     }
 }
