@@ -10,23 +10,27 @@ import UIKit
 
 class AccountDetailsViewController: UIViewController {
     
+    //MARK: - View model 🧠
     var accountDetailsViewModel: AccountDetailsViewModel?
     
+    //MARK: - View outlets 🌁
+    //Performance outlets
     @IBOutlet weak var accountPerformanceHolder: UIView!
     @IBOutlet weak var performanceLabel: UILabel!
     @IBOutlet weak var performanceDetailsLabel: UILabel!
-    
+    //Account details outlets
     @IBOutlet weak var accountNameLabel: UILabel!
     @IBOutlet weak var accountNameType: UILabel!
     @IBOutlet weak var accountPlanValueTitle: UILabel!
     @IBOutlet weak var accountPlanValue: UILabel!
-    
+    //Contribution outlets
     @IBOutlet weak var accountContributionsTitle: UILabel!
     @IBOutlet weak var accountContributions: UILabel!
-    
+    //Top up outlets
     @IBOutlet weak var topUpButton: UIButton!
     @IBOutlet weak var topUpLoadingIndicator: UIActivityIndicatorView!
     
+    //MARK: - Baked in functions 🍞
     override func viewDidLoad() {
         super.viewDidLoad()
         view.subviews.forEach { $0.alpha = 0 }
@@ -44,13 +48,7 @@ class AccountDetailsViewController: UIViewController {
         topUpButton.layer.cornerRadius = 10
     }
     
-    private func applyViewModel( ){
-        accountNameLabel.text = accountDetailsViewModel?.accountName
-        accountNameType.text = accountDetailsViewModel?.accountType
-        accountPlanValue.text =  accountDetailsViewModel?.planValue.toPoundSterlingString()
-        accountContributions.text = accountDetailsViewModel?.moneybox.toPoundSterlingString()
-    }
-    
+    //MARK: - Animations 🎭
     private func showElements() {
         
         UIView.animate(withDuration: 0.3) {
@@ -63,6 +61,14 @@ class AccountDetailsViewController: UIViewController {
         } completion: { _ in
             self.showPerformanceDetails()
         }
+    }
+    
+    //MARK: - State setters 🔨
+    private func applyViewModel( ){
+        accountNameLabel.text = accountDetailsViewModel?.accountName
+        accountNameType.text = accountDetailsViewModel?.accountType
+        accountPlanValue.text =  accountDetailsViewModel?.planValue.toPoundSterlingString()
+        accountContributions.text = accountDetailsViewModel?.moneybox.toPoundSterlingString()
     }
     
     private func showPerformanceDetails() {
@@ -108,6 +114,7 @@ class AccountDetailsViewController: UIViewController {
         }
     }
     
+    //MARK: - Button Delegate Handlers 🔘
     @IBAction func tappedTopUpButton() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         startLoadingState()
