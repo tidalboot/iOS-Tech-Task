@@ -45,7 +45,7 @@ class AccountDetailsViewController: UIViewController {
             self.accountPlanValue.alpha = 1
             self.accountContributions.alpha = 1
         } completion: { _ in
-            self.showPotProgress()
+//            self.showPotProgress()
         }
     }
     

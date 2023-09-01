@@ -12,6 +12,7 @@ struct AccountInformation {
     let value: Double
     let contributions: Int
     let type: String
+    let earnings: Double
 }
 
 class AccountsViewModel {
@@ -38,14 +39,16 @@ class AccountsViewModel {
     private func parseAccounts(from response: AccountResponse) {
         
         totalPlanValue = response.totalPlanValue
+        
         guard let rawAccounts = response.accounts else { return }
         
         let accounts: [AccountInformation] = rawAccounts.compactMap {
             guard let name = $0.name,
                   let value = $0.wrapper?.totalValue,
                   let contributions = $0.wrapper?.totalContributions,
-                  let type = $0.type else { return nil }
-            return AccountInformation(name: name, value: value, contributions: contributions, type: type)
+                  let type = $0.type,
+                  let earnings = $0.wrapper?.earningsNet else { return nil }
+            return AccountInformation(name: name, value: value, contributions: contributions, type: type, earnings: earnings)
         }
         self.accounts = accounts
     }

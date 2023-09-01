@@ -106,8 +106,8 @@
 		B2CA46CA279350880041B3A5 /* MoneyBox */ = {
 			isa = PBXGroup;
 			children = (
-				FCD6CCC42AA0EF7F00FF5F63 /* CustomViews */,
 				FCE3DEDC2AA0D7B7003A2C9E /* SessionHandler.swift */,
+				FCD6CCC42AA0EF7F00FF5F63 /* CustomViews */,
 				FC60F5F22AA0BAED005BFD36 /* Features */,
 				FC60F5EF2AA0BAD0005BFD36 /* Extensions */,
 				B2CA46CB279350880041B3A5 /* AppDelegate.swift */,

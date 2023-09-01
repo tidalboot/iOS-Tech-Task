@@ -139,7 +139,7 @@ extension AccountsViewController: UICollectionViewDataSource {
          */
         cell.planValueLabel.text = "Plan value: \(account.value.toPoundSterlingString())"
         cell.planContributionsLabel.text = "Contributions: \(account.contributions.toPoundSterlingString())"
-        cell.earningsLabel.text = "Total earnings: \(account.contributions.toPoundSterlingString())"
+        cell.earningsLabel.text = "Total earnings: \(account.earnings.toPoundSterlingString())"
         cell.alpha = 1
         cell.layer.cornerRadius = 10
         return cell
