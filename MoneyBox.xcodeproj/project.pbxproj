@@ -34,6 +34,7 @@
 		FCE8E1042AA21EF6001B38A1 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E1032AA21EF6001B38A1 /* LoginViewModelTests.swift */; };
 		FCE8E1072AA2218D001B38A1 /* BrokenLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = FCE8E1052AA22101001B38A1 /* BrokenLogin.json */; };
 		FCE8E10B2AA22261001B38A1 /* PoundSterlingStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E10A2AA22261001B38A1 /* PoundSterlingStringTests.swift */; };
+		FCE8E10D2AA22399001B38A1 /* TokenExpirationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E10C2AA22399001B38A1 /* TokenExpirationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		FCE8E1032AA21EF6001B38A1 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		FCE8E1052AA22101001B38A1 /* BrokenLogin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BrokenLogin.json; sourceTree = "<group>"; };
 		FCE8E10A2AA22261001B38A1 /* PoundSterlingStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoundSterlingStringTests.swift; sourceTree = "<group>"; };
+		FCE8E10C2AA22399001B38A1 /* TokenExpirationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExpirationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 				FCE8E0FF2AA214E8001B38A1 /* AccountsViewModelTests.swift */,
 				FCE8E1032AA21EF6001B38A1 /* LoginViewModelTests.swift */,
 				FCE8E10A2AA22261001B38A1 /* PoundSterlingStringTests.swift */,
+				FCE8E10C2AA22399001B38A1 /* TokenExpirationTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			files = (
 				FCE8E1042AA21EF6001B38A1 /* LoginViewModelTests.swift in Sources */,
 				FCE8E1002AA214E8001B38A1 /* AccountsViewModelTests.swift in Sources */,
+				FCE8E10D2AA22399001B38A1 /* TokenExpirationTests.swift in Sources */,
 				FCE8E10B2AA22261001B38A1 /* PoundSterlingStringTests.swift in Sources */,
 				FCE8E1022AA215BD001B38A1 /* MockedDataProvider.swift in Sources */,
 				B2CA47672794D69A0041B3A5 /* StubData.swift in Sources */,

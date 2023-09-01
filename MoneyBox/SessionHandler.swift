@@ -12,6 +12,12 @@ enum SessionHandlerErrors: Error {
     case Generic
 }
 
+extension Date {
+    func hasFiveMinutesPassedSinceDate(_ dateToCheck: Date) -> Bool {
+        timeIntervalSince(dateToCheck) >= 300
+    }
+}
+
 class SessionHandler {
     
     private let testing = true
@@ -30,11 +36,9 @@ class SessionHandler {
         self.sessionManager = SessionManager()
     }
     
-    //Perfect for testing
     func tokenHasExpired() -> Bool {
         guard let lastTokenRetrievalTime = self.lastTokenRetrievalTime else { return true }
-        let timeBetweenNowAndLastToken = Date().timeIntervalSince(lastTokenRetrievalTime)
-        return timeBetweenNowAndLastToken > 300
+        return Date().hasFiveMinutesPassedSinceDate(lastTokenRetrievalTime)
     }
     
     private func checkTokenFreshness(_ completion: @escaping (_ success: Bool) -> Void) {
