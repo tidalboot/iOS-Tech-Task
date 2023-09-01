@@ -9,8 +9,16 @@ import Networking
 
 class MockedDataProvider: DataProviderLogic {
     
+    static let mockLoginRequest = LoginRequest(email: "foo@test.com", password: "barbar123")
+    
     func login(request: Networking.LoginRequest, completion: @escaping ((Result<Networking.LoginResponse, Error>) -> Void)) {
         StubData.read(file: "LoginSucceed") { (result: (Result<Networking.LoginResponse, Error>)) in
+            completion(result)
+        }
+    }
+    
+    func brokenLogin(request: Networking.LoginRequest, completion: @escaping ((Result<Networking.LoginResponse, Error>) -> Void)) {
+        StubData.read(file: "BrokenLogin") { (result: (Result<Networking.LoginResponse, Error>)) in
             completion(result)
         }
     }

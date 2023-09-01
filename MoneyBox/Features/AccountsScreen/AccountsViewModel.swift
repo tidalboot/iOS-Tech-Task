@@ -17,12 +17,12 @@ struct AccountInformation {
 }
 
 class AccountsViewModel {
-    let username: String
+    let userDetails: UserDetails
     var totalPlanValue: Double?
     var accounts: [AccountInformation] = []
     
-    init(username: String) {
-        self.username = username
+    init(userDetails: UserDetails) {
+        self.userDetails = userDetails
     }
     
     func logOut() {

@@ -39,8 +39,8 @@ class AccountsViewController: UIViewController {
     
     //MARK: - State setters 🔨
     private func setUpInitialElements() {
-        guard let username = viewModel?.username else { return }
-        usernameLabel.text = "Welcome back \(username)!"
+        guard let firstName = viewModel?.userDetails.firstName else { return }
+        usernameLabel.text = "Welcome back \(firstName)!"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(promptLogOut))
     }
     

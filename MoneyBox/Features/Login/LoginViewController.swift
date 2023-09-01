@@ -72,12 +72,12 @@ class LoginViewController: UIViewController {
 
     
     //MARK: - Navigation Handlers ⛴️
-    private func goToAccountScreen(forUser username: String) {
+    private func goToAccountScreen(forUser userDetails: UserDetails) {
         
         resetElements()
         
         guard let accountViewController = UIStoryboard.init(name: "Accounts", bundle: Bundle.main).instantiateViewController(withIdentifier: "AccountsVC") as? AccountsViewController else { return }
-        accountViewController.viewModel = AccountsViewModel(username: username)
+        accountViewController.viewModel = AccountsViewModel(userDetails: userDetails)
         navigationController?.setViewControllers([accountViewController], animated: false)
     }
     

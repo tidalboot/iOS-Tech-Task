@@ -31,6 +31,9 @@
 		FCE8E0FE2AA20F80001B38A1 /* Numbers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E0FD2AA20F80001B38A1 /* Numbers+Extensions.swift */; };
 		FCE8E1002AA214E8001B38A1 /* AccountsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E0FF2AA214E8001B38A1 /* AccountsViewModelTests.swift */; };
 		FCE8E1022AA215BD001B38A1 /* MockedDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E1012AA215BD001B38A1 /* MockedDataProvider.swift */; };
+		FCE8E1042AA21EF6001B38A1 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E1032AA21EF6001B38A1 /* LoginViewModelTests.swift */; };
+		FCE8E1072AA2218D001B38A1 /* BrokenLogin.json in Resources */ = {isa = PBXBuildFile; fileRef = FCE8E1052AA22101001B38A1 /* BrokenLogin.json */; };
+		FCE8E10B2AA22261001B38A1 /* PoundSterlingStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E10A2AA22261001B38A1 /* PoundSterlingStringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		FCE8E0FD2AA20F80001B38A1 /* Numbers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+Extensions.swift"; sourceTree = "<group>"; };
 		FCE8E0FF2AA214E8001B38A1 /* AccountsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModelTests.swift; sourceTree = "<group>"; };
 		FCE8E1012AA215BD001B38A1 /* MockedDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedDataProvider.swift; sourceTree = "<group>"; };
+		FCE8E1032AA21EF6001B38A1 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		FCE8E1052AA22101001B38A1 /* BrokenLogin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BrokenLogin.json; sourceTree = "<group>"; };
+		FCE8E10A2AA22261001B38A1 /* PoundSterlingStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoundSterlingStringTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,10 +135,9 @@
 		B2CA46E12793508A0041B3A5 /* MoneyBoxTests */ = {
 			isa = PBXGroup;
 			children = (
-				B2CA47662794D69A0041B3A5 /* StubData.swift */,
+				FCE8E1092AA221E2001B38A1 /* Helpers */,
+				FCE8E1082AA221DA001B38A1 /* Tests */,
 				B2CA47682794D6AC0041B3A5 /* ResponseJsons */,
-				FCE8E0FF2AA214E8001B38A1 /* AccountsViewModelTests.swift */,
-				FCE8E1012AA215BD001B38A1 /* MockedDataProvider.swift */,
 			);
 			path = MoneyBoxTests;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				B2CA47692794D6D70041B3A5 /* LoginSucceed.json */,
+				FCE8E1052AA22101001B38A1 /* BrokenLogin.json */,
 				B2CA47B2279604A10041B3A5 /* Accounts.json */,
 			);
 			path = ResponseJsons;
@@ -211,6 +217,25 @@
 				FCE3DEE32AA0E8B9003A2C9E /* AccountDetailsViewModel.swift */,
 			);
 			path = AccountDetailsScreen;
+			sourceTree = "<group>";
+		};
+		FCE8E1082AA221DA001B38A1 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FCE8E0FF2AA214E8001B38A1 /* AccountsViewModelTests.swift */,
+				FCE8E1032AA21EF6001B38A1 /* LoginViewModelTests.swift */,
+				FCE8E10A2AA22261001B38A1 /* PoundSterlingStringTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		FCE8E1092AA221E2001B38A1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B2CA47662794D69A0041B3A5 /* StubData.swift */,
+				FCE8E1012AA215BD001B38A1 /* MockedDataProvider.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +326,7 @@
 			files = (
 				FC60F5EC2AA0BAAA005BFD36 /* Accounts.storyboard in Resources */,
 				B2CA46D82793508A0041B3A5 /* LaunchScreen.storyboard in Resources */,
+				FCE8E1072AA2218D001B38A1 /* BrokenLogin.json in Resources */,
 				B2CA47712794D8E50041B3A5 /* LoginSucceed.json in Resources */,
 				B2CA46D52793508A0041B3A5 /* Assets.xcassets in Resources */,
 				B228EA6C2880B30B00B35F16 /* Login.storyboard in Resources */,
@@ -343,7 +369,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE8E1042AA21EF6001B38A1 /* LoginViewModelTests.swift in Sources */,
 				FCE8E1002AA214E8001B38A1 /* AccountsViewModelTests.swift in Sources */,
+				FCE8E10B2AA22261001B38A1 /* PoundSterlingStringTests.swift in Sources */,
 				FCE8E1022AA215BD001B38A1 /* MockedDataProvider.swift in Sources */,
 				B2CA47672794D69A0041B3A5 /* StubData.swift in Sources */,
 			);

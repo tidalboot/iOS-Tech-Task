@@ -31,7 +31,7 @@ class SessionHandler {
     }
     
     //Perfect for testing
-    private func tokenHasExpired() -> Bool {
+    func tokenHasExpired() -> Bool {
         guard let lastTokenRetrievalTime = self.lastTokenRetrievalTime else { return true }
         let timeBetweenNowAndLastToken = Date().timeIntervalSince(lastTokenRetrievalTime)
         return timeBetweenNowAndLastToken > 300

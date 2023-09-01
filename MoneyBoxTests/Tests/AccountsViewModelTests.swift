@@ -28,7 +28,7 @@ final class AccountsViewModelTests: XCTestCase {
                 XCTFail("no response received from mocked data")
                 return
             }
-            let accountsViewModel = AccountsViewModel(username: "test")
+            let accountsViewModel = AccountsViewModel(userDetails: UserDetails(firstName: "Jo", lastName: "Jo"))
             let accounts = accountsViewModel.parseAccounts(from: response)
             
             XCTAssertNotNil(accounts.first, "no accounts/products parsed succesfully")
@@ -41,7 +41,7 @@ final class AccountsViewModelTests: XCTestCase {
                 XCTFail("no response received from mocked data")
                 return
             }
-            let accountsViewModel = AccountsViewModel(username: "test")
+            let accountsViewModel = AccountsViewModel(userDetails: UserDetails(firstName: "Jo", lastName: "Jo"))
             let accounts = accountsViewModel.parseAccounts(from: response)
             
             guard let firstAccount = accounts.first else {

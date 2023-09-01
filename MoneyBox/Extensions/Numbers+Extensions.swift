@@ -9,7 +9,7 @@ import Foundation
 
 extension Double {
     func toPoundSterlingString() -> String {
-        "£\(self)"
+        "£\(String(format: "%.2f", self))"
     }
 }
 
