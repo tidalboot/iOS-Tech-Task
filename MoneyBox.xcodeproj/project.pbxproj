@@ -29,6 +29,8 @@
 		FCE3DEE42AA0E8B9003A2C9E /* AccountDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE3DEE32AA0E8B9003A2C9E /* AccountDetailsViewModel.swift */; };
 		FCE8E0FC2AA1F8BC001B38A1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E0FB2AA1F8BC001B38A1 /* UIViewController+Extensions.swift */; };
 		FCE8E0FE2AA20F80001B38A1 /* Numbers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E0FD2AA20F80001B38A1 /* Numbers+Extensions.swift */; };
+		FCE8E1002AA214E8001B38A1 /* AccountsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E0FF2AA214E8001B38A1 /* AccountsViewModelTests.swift */; };
+		FCE8E1022AA215BD001B38A1 /* MockedDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8E1012AA215BD001B38A1 /* MockedDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		FCE3DEE32AA0E8B9003A2C9E /* AccountDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewModel.swift; sourceTree = "<group>"; };
 		FCE8E0FB2AA1F8BC001B38A1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		FCE8E0FD2AA20F80001B38A1 /* Numbers+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Numbers+Extensions.swift"; sourceTree = "<group>"; };
+		FCE8E0FF2AA214E8001B38A1 /* AccountsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModelTests.swift; sourceTree = "<group>"; };
+		FCE8E1012AA215BD001B38A1 /* MockedDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedDataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 			children = (
 				B2CA47662794D69A0041B3A5 /* StubData.swift */,
 				B2CA47682794D6AC0041B3A5 /* ResponseJsons */,
+				FCE8E0FF2AA214E8001B38A1 /* AccountsViewModelTests.swift */,
+				FCE8E1012AA215BD001B38A1 /* MockedDataProvider.swift */,
 			);
 			path = MoneyBoxTests;
 			sourceTree = "<group>";
@@ -337,6 +343,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE8E1002AA214E8001B38A1 /* AccountsViewModelTests.swift in Sources */,
+				FCE8E1022AA215BD001B38A1 /* MockedDataProvider.swift in Sources */,
 				B2CA47672794D69A0041B3A5 /* StubData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

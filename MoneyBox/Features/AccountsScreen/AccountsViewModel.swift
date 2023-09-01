@@ -33,7 +33,8 @@ class AccountsViewModel {
         SessionHandler.shared.loadAccounts { result in
             switch result {
             case .success(let response):
-                self.parseAccounts(from: response)
+                let accountInformation = self.parseAccounts(from: response)
+                self.accounts = accountInformation
                 completion(true)
             case .failure(_):
                 completion(false)
@@ -41,11 +42,11 @@ class AccountsViewModel {
         }
     }
     
-    private func parseAccounts(from response: AccountResponse) {
+    func parseAccounts(from response: AccountResponse) -> [AccountInformation] {
         
         totalPlanValue = response.totalPlanValue
         
-        guard let rawProducts = response.productResponses else { return }
+        guard let rawProducts = response.productResponses else { return [] }
         
         let accounts: [AccountInformation] = rawProducts.compactMap {
             guard let name = $0.product?.name,
@@ -56,6 +57,6 @@ class AccountsViewModel {
                   let id = $0.id else { return nil }
             return AccountInformation(name: name, value: value, moneybox: moneyBox, type: type, earnings: earnings, id: id)
         }
-        self.accounts = accounts
+        return accounts
     }
 }

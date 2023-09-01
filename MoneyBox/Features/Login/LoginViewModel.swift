@@ -7,11 +7,6 @@
 
 import Networking
 
-struct AccountDetails: Decodable {
-    let firstName: String
-    let totalMoneyBoxAmount: Double
-}
-
 class LoginViewModel {
     
     func handleLogin(withEmail email: String, password: String, andCompletion completion: @escaping (_ customerName: String?, _ succcess: Bool) -> Void) {
